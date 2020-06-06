@@ -1,0 +1,238 @@
+
+*/
+/*---------------------------------------------------------------------------*/
+/* Additions for bootstrap                                                   */
+/*---------------------------------------------------------------------------*/
+/* some changes in bootstrap modal */
+.modal-body {
+    padding: 20px 20px 0px 20px !important;
+    text-align: center !important;
+}                                                                                                                                                           .modal-footer{
+    text-align: center !important;
+}
+.collapsible {
+    background-color: #dcc;
+    color: darkslategray;
+    cursor: pointer;
+    padding: 16px;
+    width: 100%;
+    display: block;
+    border: none;
+    text-align: right;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #cbb;
+}
+
+.advanced-content {
+    background-color: #edd;
+    padding: 0 5px 5px;
+    width: 100%;
+    display: none;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.reading-content{
+    background-color: #fee;
+    padding: inherit;
+    width: inherit;
+    text-indent: 20px;
+}
+
+.button-div{
+    padding: 10px;
+    border-style: hidden solid solid;
+    border-radius: 0px 0px 10px 10px;
+    border-color: #fff;
+}
+#shown-content {
+    padding: 10px;
+    border-style: hidden solid solid;
+    border-radius: 0px 0px 10px 10px;
+    border-color: #fff;
+}
+
+#button-row{
+    height: 72px;
+    border-style: solid hidden;
+}
+#button-cell{
+    border-style: inherit;
+    position: relative;
+    padding-top: 8px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.left-margin{       
+    margin:0 .5em 0 0;
+}
+.right-button-margin{
+    margin: 0 0 1em 0;
+    overflow: hidden;
+}
+/* OVERRIDE OF BOOTSTRAP STYLE DEFINITIONS */
+.linne-btn {
+ display: block;
+    padding: 16px;
+    width: 100%;
+    margin-bottom: 0;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: hidden;
+    text-align: right;
+}
+.linne-btn-submit {
+    color: #fff;
+    background-color: #337ab7;
+}
+
+.active, .linne-btn-submit:hover {
+  background-color: #115595;
+}
+
+
+/* all */
+::-webkit-input-placeholder { color:#aaa; font-style: italic; }
+::-moz-placeholder { color:#aaa; font-style: italic; } /* firefox 19+ */
+:-ms-input-placeholder { color:#aaa; font-style: italic; } /* ie */
+input:-moz-placeholder { color:#aaa; font-style: italic; }
+
+/* COMMENTED OUT AS IT INTERFERES WITH THE BOOTSTRAP STYLES ABOVE
+button{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background: black;
+    margin: 20px;
+    cursor: pointer;
+}
+*/
+    
+    /* This may need to be removed if it screws up layout */
+* {
+  box-sizing: border-box;
+}
+/*Date:
+                            <input type="date" name="date" value="<?= date('Y-m-d', time()); ?>" /><br> -->*/
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  /*height: 200px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+table.greyGridTable {
+  border: 2px solid gray;
+  width: 80%;
+}
+table.greyGridTable td, table.greyGridTable th {
+  border: 1px solid gray;
+  padding: 3px 4px;
+}
+table.greyGridTable tbody td {
+}
+table.greyGridTable td:nth-child(even) {
+  background: #EBEBEB;
+}
+table.greyGridTable thead {
+  background: #FFFFFF;
+  border-bottom: 4px solid #333333;
+}
+table.greyGridTable thead th {
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  border-left: 2px solid #333333;
+}
+table.greyGridTable thead th:first-child {
+}
+
+table.greyGridTable tfoot {
+  font-weight: bold;
+  color: #333333;
+  border-top: 4px solid #333333;
+}
+table.greyGridTable tfoot td {
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+#sidebar, #content{
+    height: 100%;
+    overflow: auto;
+}
+
+#content{
+    background: rgba(245,245,245,1);
+    width: 80%;
+    float: right;
+}
+
+#contentMargin{
+    position: relative;
+    left:2%;
+}
+
+#sidebar{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    /*background: rgba(255,184,125,1);*/
+    background: #E3965B; /*rgba(28,195,188,1);*/
+    width: 20%;
+    box-shadow: 2px, 0, 4px, rgba(0,0,0,0.5);
+    transition: width .35s;
+}
+#sidebarMargin{
+    position: absolute;
+    left: 5%;
+}
+
+#closer{
+    float:right;
+}   
+
+#appTitle{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 26px;
+    text-align: left;
+    color: #383313;
+}
+h3{
+    text-align: center;
+    color:#383313;
+    font-family: sans-serif;
+}
