@@ -9,6 +9,8 @@
 //              --make it so delete function doesn't have to got through JS to add ID to the POST.  I just
 //                need to figure out how to call a PHP method from the button click.
 // OPTIMIZE     Search for 'OPTIMIZE'
+// INCLUDES:    ../client/res/inc/tagContainer.js
+//              ../client/updateBook.js
 //---------------------------------------------------------------------------*/
 
 //INCLUDES

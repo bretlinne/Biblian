@@ -4,6 +4,7 @@
 // File:        layoutHeader.php
 // Dir:         /layoutHeader.php
 // Desc:        Provide templating for the Header UI
+// INCLUDES:    ../client/read.css
 //-----------------------------------------------------------------------------
 */
 ?>
@@ -21,7 +22,7 @@
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' /> 
     
     <!--Biblian CSS-->
-    <link rel='stylesheet' type='text/css' href='stylesheet.css' media='screen'/>
+    <link rel='stylesheet' type='text/css' href='../client/read.css' media='screen'/>
     
     <link href='https://fonts.googleapis.com/css?family=Ubuntu&display=swap' rel='stylesheet'>    
     

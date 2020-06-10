@@ -4,6 +4,9 @@
 // File:        layoutFooter.php
 // Dir:         /layoutFooter.php
 // Desc:        Provide templating for the Footer UI
+// INCLUDES     bootstrap
+//              jquery
+//              bootbox library
 //-----------------------------------------------------------------------------
 */
 ?>

@@ -4,6 +4,8 @@
 // File:        paging.php
 // Dir:         /paging.php
 // Desc:        Functions for creating pagination of data output from Biblian
+// INCLUDES:    NONE
+//              
 //---------------------------------------------------------------------------*/
 
 echo "<ul class='pagination'>";

@@ -4,6 +4,11 @@
 // File:        index.php
 // Dir:         /index.php
 // Desc:        Basic read of the library as it stands, and nav to other pages.
+// INCLUDES:    ./res/inc/core.php
+//              ./res/inc/database.php
+//              ./objects/subjects.php
+//              ./objects/books.php
+//              ./res/inc/helperFunctions.php
 //-----------------------------------------------------------------------------
 */
 
@@ -20,19 +25,19 @@ $recordsPerPage = 5;
 $fromRecordNum = ($recordsPerPage * $page) - $recordsPerPage;
 
 // core.php holds Pagination variables
-include_once __DIR__.'/res/inc/core.php';
+include_once './res/inc/core.php';
 // include database and object files
-require_once __DIR__.'/res/inc/database.php';
-include_once 'objects/subjects.php';
-include_once 'objects/books.php';
-include_once 'res/inc/helperFunctions.php';
+include_once './res/inc/database.php';
+include_once './objects/subjects.php';
+include_once './objects/books.php';
+include_once './res/inc/helperFunctions.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // set page header
 $pageTitle = "Your Biblian Library";
-include_once "layoutHeader.php";
+include_once "./layoutHeader.php";
 
 // Instantiate DB Class
 $database = new Database();
@@ -59,4 +64,5 @@ include_once 'readTemplate.php';
 
 // set page footer
 include_once "layoutFooter.php";
+
 ?>

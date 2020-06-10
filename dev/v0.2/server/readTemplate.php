@@ -1,3 +1,10 @@
+<!--
+INCLUDES:
+--./paging.php
+--../res/inc/clearReload.php
+--./createBook.php
+--./updateBook.php?id=${bookId}
+-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 .slidecontainer {
@@ -66,7 +73,7 @@ if($_POST){
     if($book->deleteSelectedBooks($bookIds)){
         $stmt = $book->readAll($fromRecordNum, $recordsPerPage);
         echo "<div class='alert alert-success'>Delete from Database Successful</div>";
-        header('Location:./res/inc/clearReload.php');
+        header('Location:../res/inc/clearReload.php');
     }
 }
 
@@ -245,6 +252,7 @@ $statUnRead =
 </svg>
 ";
 
+
 //Display Library Contents if they exist
 if($totalRows > 0){
     //swapStatusState($statAssigned, $statFinColorsHover);
@@ -253,6 +261,7 @@ if($totalRows > 0){
         extract($row);
 
         echo "<div class='bookContainer'>";
+        
         // ------------------------------------------------------------------------------
         // START selectBoxAndAllOthers - contains Select Box, Title, author, rating
         // ------------------------------------------------------------------------------

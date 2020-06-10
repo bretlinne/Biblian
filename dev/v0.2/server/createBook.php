@@ -7,6 +7,11 @@
 //              Construct the INSERT command from the fields in the page and 
 //              the POST. 
 //              Give UI feedback on success or failure of the INSERT
+// INCLUDES:    ./res/inc/database.php';
+//              ./objects/books.php
+//              ./objects/subjects.php
+//              ./res/inc/helperFunctions.php 
+//              ../client/res/inc/base64.js
 // TODO:        --Author
 //              --check that if a blank is POSTed for Subject, the system does
 //                NOT try to create a row in Subjects table for a blank entry.
@@ -378,7 +383,7 @@ To use the JS,
 <script src="https://underscorejs.org/underscore-min.js"></script>
 
 <!--include the base64 Javascript helper functions-->
-<script src='./res/inc/base64.js'></script>
+<script src='../client/res/inc/base64.js'></script>
 <!--<script src='/bib/res/inc/base64.js'></script>-->
 
 <script>
