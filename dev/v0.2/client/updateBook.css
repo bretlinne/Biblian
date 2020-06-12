@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/*===========================================================================*/
+/*                                                                           */
+/* udpateBook.css                                                            */
+/*                                                                           */
+/*===========================================================================*/
+/* BOOTSTRAP classes used:
+  .right-button-margin
+  .btn 
+  .btn-primary
+  .pull-right
+*/
+#deleteBtn {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    display: inline-block;
+    width: 64px;
+    height: 34px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+/* tag container */
+.linne-container{
+    width: 100%;
+    margin: 0px;
+}
+
+.linne-tag-container{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+}
+
+.linne-tag-container .tag{
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background: #ddf;
+    cursor: default;
+}
+.tag i{
+    font-size: 16px;
+    margin-left: 5px;
+}
+.linne-tag-container input{
+    flex: 1;
+    font-size: 16px;
+    padding: 5px;
+    outline: none;
+    border: 0;
+}
+
+input[type=checkbox]{
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+    margin: 4px 6px 0;
+}
+

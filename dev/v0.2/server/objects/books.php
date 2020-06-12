@@ -276,8 +276,8 @@ class Book{
             
         $final = $this->dbConn->prepare($query);
         
+        debug_to_console('query: ' .$query);
         
-        debug_to_console($query);
         // this calls a function with code shared between $this->create() and $this->update()
         $this->scrubAndBind($final);
         
@@ -290,6 +290,7 @@ class Book{
             $final->debugDumpParams();
             return false;
         }
+        
     } /* END CREATE METHOD */
       
     /*-----------------------------------------------------------------------------

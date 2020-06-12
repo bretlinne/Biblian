@@ -480,4 +480,4 @@ class Subject{
 ?>
 
 <!--include the base64 Javascript helper functions-->
-<script src='./res/inc/base64.js'></script>
+<script src='../client/res/inc/base64.js'></script>

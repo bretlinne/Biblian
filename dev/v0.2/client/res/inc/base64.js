@@ -1,3 +1,5 @@
+// THIS MAY NOT BE USEFUL.  In the tagContainer.js file, I use "encodedTags = btoa(JSON.stringify(tagsToSubmit));"
+            
 function base64_encode (stringToEncode) { // eslint-disable-line camelcase
   // encodeUTF8string()
   // Internal function to encode properly UTF8 string

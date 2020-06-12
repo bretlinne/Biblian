@@ -37,6 +37,10 @@ ini_set('display_errors', 1);
 
 // set page header
 $pageTitle = "Your Biblian Library";
+
+// set page stylesheet
+$stylesheet = '../client/read.css';
+
 include_once "./layoutHeader.php";
 
 // Instantiate DB Class

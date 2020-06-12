@@ -21,12 +21,10 @@
     <!--latest compiled and minified bootstrap-->
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' /> 
     
-    <!--Biblian CSS-->
-    <link rel='stylesheet' type='text/css' href='../client/read.css' media='screen'/>
+    <!--CSS-->
+    <link rel='stylesheet' type='text/css' href=<?php echo $stylesheet; ?> media='screen' id='pagestyle'/>
     
     <link href='https://fonts.googleapis.com/css?family=Ubuntu&display=swap' rel='stylesheet'>    
-    
-    
 </head>    
 <body>
     <!--generic container-->

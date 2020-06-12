@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-/*---------------------------------------------------------------------------*/
-/* Additions for bootstrap                                                   */
-/*---------------------------------------------------------------------------*/
-/* some changes in bootstrap modal */
-.modal-body {
-    padding: 20px 20px 0px 20px !important;
-    text-align: center !important;
-}                                                                                                                                                           .modal-footer{
-    text-align: center !important;
-}
+/*===========================================================================*/
+/*                                                                           */
+/* createBook.css                                                            */
+/*                                                                           */
+/*===========================================================================*/
+
+/* BOOTSTRAP classes used:
+  .table
+  .table-hover
+  .table-responsive
+  .table-bordered
+  .form-control
+*/
+
 .collapsible {
     background-color: #dcc;
     color: darkslategray;
@@ -22,176 +26,6 @@
     outline: none;
     font-size: 15px;
 }
-
-.active, .collapsible:hover {
-  background-color: #cbb;
-}
-
-.advanced-content {
-    background-color: #edd;
-    padding: 0 5px 5px;
-    width: 100%;
-    display: none;
-    overflow: hidden;
-    position: relative;
-    border-radius: 0px 0px 10px 10px;
-}
-
-.reading-content{
-    background-color: #fee;
-    padding: inherit;
-    width: inherit;
-    text-indent: 20px;
-}
-
-.button-div{
-    padding: 10px;
-    border-style: hidden solid solid;
-    border-radius: 0px 0px 10px 10px;
-    border-color: #fff;
-}
-#shown-content {
-    padding: 10px;
-    border-style: hidden solid solid;
-    border-radius: 0px 0px 10px 10px;
-    border-color: #fff;
-}
-
-#button-row{
-    height: 72px;
-    border-style: solid hidden;
-}
-#button-cell{
-    border-style: inherit;
-    position: relative;
-    padding-top: 8px;
-    padding-left: 0px;
-    padding-right: 0px;
-}
-
-.left-margin{       
-    margin:0 .5em 0 0;
-}
-.right-button-margin{
-    margin: 0 0 1em 0;
-    overflow: hidden;
-}
-/* OVERRIDE OF BOOTSTRAP STYLE DEFINITIONS */
-.linne-btn {
- display: block;
-    padding: 16px;
-    width: 100%;
-    margin-bottom: 0;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: hidden;
-    text-align: right;
-}
-.linne-btn-submit {
-    color: #fff;
-    background-color: #337ab7;
-}
-
-.active, .linne-btn-submit:hover {
-  background-color: #115595;
-}
-
-#search-btn {
-    color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
-    padding: 9px 12px;
-}
-
-#tBook{
-    background-color: #ffaaaa;
-    /* width: 100%;
-    height: 154px;
-    display: flex; */
-}
-#tTitleStat{
-    background-color: #000;
-    width: 100%;
-    height: 130px;
-    display: flex;
-    /* padding: 10px;
-    margin: 5px 5px 5px 5px; */
-}
-#tTitleStarsAuthorsSubjects{
-    background-color: #cc7788;
-    width: 65%;
-    height: 130px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-#tTitle{
-    background-color: #ffffaa;
-    width: 100%;
-    height: 40px;
-    flex: none;
-}
-#tEtAl{
-    background-color: #ccccff;
-    width: 100%;
-    height: 90px;
-    display: flex;
-    /* flex: auto; */
-    flex-direction: row;
-}
-
-#tStarsAndAuthors{
-    background-color: #ccc;
-    width: 42%;
-    height: 90px;
-}
-
-#tStars{
-    background-color: #fff;
-    width: 100%;
-    height: 50px;
-}
-
-#tAuthors{
-    background-color: #aaa;
-    width: 100%;
-    height: 40px;
-}
-
-#tSubjects{
-    background-color: #77eeee;
-    width: 58%;
-    height: 90px;
-}
-#tStatContainer{
-    background-color: #aaa;
-    width: 35%;
-    height: 130px;
-    display: flex;
-}
-#tAdvanced{
-    background-color: #888;
-    width: 100%;
-    height: 20px;
-}
-
-/* all */
-::-webkit-input-placeholder { color:#aaa; font-style: italic; }
-::-moz-placeholder { color:#aaa; font-style: italic; } /* firefox 19+ */
-:-ms-input-placeholder { color:#aaa; font-style: italic; } /* ie */
-input:-moz-placeholder { color:#aaa; font-style: italic; }
 
 /* tag container */
 .linne-container{
@@ -227,25 +61,131 @@ input:-moz-placeholder { color:#aaa; font-style: italic; }
     border: 0;
 }
 
-#starSlider{
-    float: left;
-    clear: left;
-    width: 300px;
-    margin: 15px;
+#button-row{
+    height: 72px;
+    border-style: solid hidden;
+}
+#button-cell{
+    border-style: inherit;
+    position: relative;
+    padding-top: 8px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
-#starSlider .ui-range-slider{
-    background: #fff;
-}
-#starSlider .ui-state-default, .ui-widget-content .ui-state-default {
-	background: none;
-	background-color: #FFF;
+.reading-content{
+    background-color: #fee;
+    padding: inherit;
+    width: inherit;
+    text-indent: 20px;
 }
 
-/*----------------------------------------------------------------------------*/
-/* Book Container                                                             */
-/* READ PAGE */
-/*----------------------------------------------------------------------------*/
+/* OVERRIDE OF BOOTSTRAP STYLE DEFINITIONS */
+.linne-btn {
+ display: block;
+    padding: 16px;
+    width: 100%;
+    margin-bottom: 0;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: hidden;
+    text-align: right;
+}
+.linne-btn-submit {
+    color: #fff;
+    background-color: #337ab7;
+}
+
+.active, .linne-btn-submit:hover {
+  background-color: #115595;
+}
+
+.advanced{
+    text-align: left;
+}
+/*===========================================================================*/
+/*                                                                           */
+/* udpateBook.css                                                            */
+/*                                                                           */
+/*===========================================================================*/
+
+
+/*===========================================================================*/
+/*                                                                           */
+/* read.css                                                                  */
+/*                                                                           */
+/*===========================================================================*/
+
+/* BOOTSTRAP classes used:
+  .right-button-margin
+  .btn 
+  .btn-primary
+  .pull-right
+  .glyphicon
+  .glyphicon-plus
+  .glyphicon-trash
+  .glyphicon-chevron-down
+  .glyphicon-book
+  .alert
+  .alert-info
+*/
+
+.slidecontainer {
+  width: 50%; /* Width of the outside container */
+}
+
+input[type=range] {
+    display: block;
+    width: 50%; /* Full-width */
+}
+    
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+/*-----------------------------------*/
+/* Book Container                    */
+/*-----------------------------------*/
 /* READ PAGE */
 .bookContainer{
     background-color: #fff;
@@ -279,6 +219,7 @@ input[type=checkbox]{
     -moz-transform: scale(2); /* FF */
     -webkit-transform: scale(2); /* Safari and Chrome */
     -o-transform: scale(2); /* Opera */
+    margin: 4px 6px 0;
 }
 
 /* READ PAGE */
@@ -445,8 +386,9 @@ input[type=checkbox]{
     height: 124px;
     border-radius: 10px;
 }
+
 /*----------------------------------------------------------------------------*/
-/* SVG CSS                                                                    */
+/* SVG Images CSS                                                             */
 /*----------------------------------------------------------------------------*/
 [class*='status']{
     width: 10em;
@@ -492,9 +434,34 @@ input[type=checkbox]{
     transform: scale(0.99);
 }
 
-/*---------------------------------------------------------------------------*/
-/* Slider for Reading List Add/Remove                                        */
-/*---------------------------------------------------------------------------*/
+/*-----------------------------------*/
+/* Star Slider for rating change     */
+/* CURRENTLY COMMENTED OUT in        */
+/* readTemplate.php                  */
+/*-----------------------------------*/
+/*
+#starSlider{
+    float: left;
+    clear: left;
+    width: 300px;
+    margin: 15px;
+}
+
+#starSlider .ui-range-slider{
+    background: #fff;
+}
+#starSlider .ui-state-default, .ui-widget-content .ui-state-default {
+	background: none;
+	background-color: #FFF;
+}
+*/
+
+/*-----------------------------------*/
+/* Slider for ReadingList Add/Remove */
+/* CURRENTLY COMMENTED OUT in        */
+/* readTemplate.php                  */
+/*-----------------------------------*/
+/*
 .readingListSwitch {
   position: relative;
   display: inline-block;
@@ -553,8 +520,11 @@ input:checked + .slider:before {
   -ms-transform: translateX(38px);
   transform: translateX(38px);
 }
+*/
 
-/* Rounded sliders */
+/*-----------------------------------*/
+/* Rounded sliders                   */
+/*-----------------------------------*/
 .slider.round {
   border-radius: 9px;
 }
@@ -583,6 +553,64 @@ input:checked + .slider:before {
     background-image: url(images/status_OnList_faded.svg);    
     opacity: 1;
 }
+
+
+/*---------------------------------------------------------------------------*/
+/* Additions for bootstrap                                                   */
+/*---------------------------------------------------------------------------*/
+/* some changes in bootstrap modal */
+.modal-body {
+    padding: 20px 20px 0px 20px !important;
+    text-align: center !important;
+}                                                                                                                                                           .modal-footer{
+    text-align: center !important;
+}
+
+.active, .collapsible:hover {
+  background-color: #cbb;
+}
+
+.advanced-content {
+    background-color: #edd;
+    padding: 0 5px 5px;
+    width: 100%;
+    display: none;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0px 0px 10px 10px;
+}
+
+
+.button-div{
+    padding: 10px;
+    border-style: hidden solid solid;
+    border-radius: 0px 0px 10px 10px;
+    border-color: #fff;
+}
+#shown-content {
+    padding: 10px;
+    border-style: hidden solid solid;
+    border-radius: 0px 0px 10px 10px;
+    border-color: #fff;
+}
+
+
+.left-margin{       
+    margin:0 .5em 0 0;
+}
+.right-button-margin{
+    margin: 0 0 1em 0;
+    overflow: hidden;
+}
+
+/* all */
+::-webkit-input-placeholder { color:#aaa; font-style: italic; }
+::-moz-placeholder { color:#aaa; font-style: italic; } /* firefox 19+ */
+:-ms-input-placeholder { color:#aaa; font-style: italic; } /* ie */
+input:-moz-placeholder { color:#aaa; font-style: italic; }
+
+
+
 
 /*---------------------------------------------------------------------------*/
 /* For non-selectable areas, give it a class of 'noselect'                   */

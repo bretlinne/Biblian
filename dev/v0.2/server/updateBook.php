@@ -31,15 +31,19 @@ $subject = new Subject($db);
 // set page header
 $pageTitle = 'Update Book';
 
+// set stylesheet
+$stylesheet = '../client/updateBook.css';
+
 include_once 'layoutHeader.php';
 
 $lastSubjectID = null;
 
 // NAV BUTTON BACK TO INDEX.PHP
 echo "<div class='right-button-margin'>";
-    echo "<a href='index.php' class='btn btn-default pull-right'>Biblian Home</a>";
+    echo "<a href='index.php' class='btn btn-primary pull-right'>";
+    echo "<span class='glyphicon glyphicon-book'></span> Biblian Home";
+    echo "</a>";
 echo "</div>";
-
 
 //Set id of book to be retrieved
 $book->ID = $ID;
@@ -287,52 +291,10 @@ include_once 'layoutFooter.php';
 ?>
 
 <script src="https://underscorejs.org/underscore-min.js"></script>
-<script src='./res/inc/tagContainer.js'></script>
-<script src='./updateBook.js'></script>
-<script>
-    addPreExistingTags();
-    deleteThisBook
-    /*-----------------------------------------------------------------------------
-// Function:    deleteSelected()        
-//
-// Desc:        Javascript. Get the IDs of selected Books & pass them to $_POST  
-// Invocations: readtemplate.php:
-//                echo "<a id='deleteBtn' onclick='deleteSelected()'>";
-//---------------------------------------------------------------------------*/
 
-function deleteThisBook(){
-    // GET THE ID OF THE BOOK(s) SELECTED BY CHECKBOXEN - bookCheckBox.book-id
-    var bookId = document.getElementById('deleteBtn').getAttribute('book-id');
-    
-    // Proceed with DELETE
-    // only _POST data IF there are selected checkboxen
-    if (confirm('Are you ABSOLUTELY sure you want to permanently delete this book from your Library?')){
-        const btnSubmission = document.querySelector('#deleteForm');
-        const idToDelete = document.createElement('input');
-        idToDelete.setAttribute('name', 'bookId');
-        idToDelete.setAttribute('type', 'hidden');
-        idToDelete.setAttribute('value', bookId);
-        btnSubmission.appendChild(idToDelete);
-        document.getElementById('deleteForm').submit();
-        return(true);
-    }
-    return(false); 
-}
+<!--include the base64 & tagContainer Javascript helper functions-->
+<!-- <script src='../client/res/inc/base64.js'></script> THIS ONE DOESN"T SEEM TO BE NEEDED ANYMORE--> 
+<script src='../client/res/inc/tagContainer.js'></script>
+<!--include the updateBook.js file-->
+<script src='../client/updateBook.js'></script>
 
-function attachReadingToPost(){
-    var readingValue = document.querySelector('#reading-box').checked;
-        if(readingValue){
-            readingValue = 1;
-        }else{
-            readingValue = 0;
-        }
-        const form = document.querySelector('#mainForm');
-        const readingInputToAttach = document.createElement('input');
-        
-        readingInputToAttach.setAttribute('name', 'Reading');
-        readingInputToAttach.setAttribute('type', 'hidden');
-        readingInputToAttach.setAttribute('value', readingValue);
-        
-        form.appendChild(readingInputToAttach);
-}
-</script>

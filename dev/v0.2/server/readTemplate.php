@@ -1,54 +1,11 @@
 <!--
 INCLUDES:
 --./paging.php
---../res/inc/clearReload.php
+--./res/inc/clearReload.php
 --./createBook.php
 --./updateBook.php?id=${bookId}
 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.slidecontainer {
-  width: 50%; /* Width of the outside container */
-}
-
-input[type=range] {
-    display: block;
-    width: 50%; /* Full-width */
-}
-    
-/* The slider itself */
-.slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
-  height: 25px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  transition: opacity .2s;
-}
-
-/* Mouse-over effects */
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
-}
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #4CAF50; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-}
-
-.slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #4CAF50; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-}
-</style>
 
 <?php 
 /*-----------------------------------------------------------------------------
@@ -73,7 +30,7 @@ if($_POST){
     if($book->deleteSelectedBooks($bookIds)){
         $stmt = $book->readAll($fromRecordNum, $recordsPerPage);
         echo "<div class='alert alert-success'>Delete from Database Successful</div>";
-        header('Location:../res/inc/clearReload.php');
+        header('Location:./res/inc/clearReload.php');
     }
 }
 
@@ -425,38 +382,6 @@ if($totalRows > 0){
         //    echo "<input type='range min=0 max=5 value=0 class='slider' step='0.5'/>";
         //echo "</div>";
         
-        
-        /*
-            echo "<td>STAND IN FOR AUTHOR</td>";        // IN NEW TEMPLATE
-            echo "<td>{$SubjectName}</td>";             // IN NEW TEMPLATE
-            echo "<td>{$Rating}</td>";                  // IN NEW TEMPLATE
-            echo "<td>{$PageCount}</td>";
-            echo "<td>{$DateAcquired}</td>";
-            echo "<td>{$DateStarted}</td>";
-            echo "<td>{$DateFinished}</td>";
-            echo "<td>{$Progress}</td>";
-            echo "<td>{$ListPrice}</td>";
-            echo "<td>{$ISBN}</td>";
-            echo "<td>{$Comments}</td>";
-        
-            echo "<td>";
-                // read one, edit and delete button will be here
-                //CHANGE NAME read_one.php to bookDetail.php
-        
-                echo "<a href='readOne.php?id={$ID}' class='btn btn-primary left-margin'>
-                    <span class='glyphicon glyphicon-list'></span> Read
-                    </a>
-                    
-                    <a href='updateBook.php?id={$ID}' class='btn btn-info left-margin'>
-                    <span class='glyphicon glyphicon-edit'></span> Edit
-                    </a>
-                    <a delete-id='{$ID}' class='btn btn-danger delete-object'>
-                    <span class='glypicon glyphicon-remove'></span> Delete
-                    </a>
-                ";
-            echo "</td>";
-        echo "</tr>";
-        */
     } // END WHILE
     
     //echo '</table>';
