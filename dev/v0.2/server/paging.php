@@ -9,6 +9,7 @@
 //              readTemplate.php (toward end of html)
 //---------------------------------------------------------------------------*/
 
+echo "<div class='pages-gantt'>";
 echo "<ul class='pagination'>";
 
 //Button for the 1st page
@@ -63,6 +64,20 @@ if($page < $totalPages){
 }
 
 echo "</ul>";
+
+// GANTT CHART LINK - ONLY SHOWN ON HOME PAGE
+// ------------------------------------------
+// $view is set on the calling php file, such as index.php or readingList.php.  Its not so much realated to the
+// exact file, but the 'view' function of the calling file.  For now, index.php calls paging.php, layoutHeader.php, 
+// layoutFooter.php, readTemplate.php.  All these have the FUNCTION of being the 'read' view for the web app. 
+// possible $view values: 'create', 'read', 'readingList', 'update'
+if ($view == 'read'){
+    echo "<div class='gantt'>";
+        echo "<a href='https://docs.google.com/spreadsheets/d/1Y_w0t-RUGoz8xgz2xlpvpzduak_sq-8ZgmynjVCoZGQ/edit?usp=sharing'>View Project GANTT Chart</a>";
+    echo "</div>";
+}
+
+echo "</div>";
 ?>
 
 

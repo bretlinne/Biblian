@@ -36,7 +36,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // set page header
-$pageTitle = "Your Biblian Library";
+$pageTitle = "Biblian - Your Digital Library Catalogue (v0.2)";
+$view = 'read';         //$view values: 'create', 'read', 'readingList', 'update'
 
 // set page stylesheet
 $stylesheet = '../client/read.css';

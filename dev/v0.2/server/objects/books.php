@@ -290,16 +290,39 @@ class Book{
             $final->debugDumpParams();
             return false;
         }
-        
     } /* END CREATE METHOD */
-      
+    
     /*-----------------------------------------------------------------------------
-    // Function:    readAll()        
+    // Function:    readTitles()      
     //
-    // Desc:        SELECT all fields from the Books table, order by Title ASC
-    // Invocations: index.php
-    //              --$stmt = $book->readAll($fromRecordNum, $recordsPerPage);
+    // Desc:        SELECT all book IDs and Titles for populating a dropdown modal
+    //              in the readingList view
+    // Invocations: readingList.php
+    //              --$allBooks = $book->readAll($fromRecordNum, $recordsPerPage);
     //---------------------------------------------------------------------------*/
+    function readTitles(){
+        //ORIGINAL WORKING QUERY --WITHOUT-- GROUP_CONCAT or COUNTING
+        $query = "SELECT b.ID, b.Title FROM 
+                " . $this->tableName . " AS b 
+            ORDER BY
+                Title ASC";
+        
+        $final = $this->dbConn->prepare($query);
+        $final->execute();
+    
+        return $final;
+    }
+
+
+    /*----------------------------------------------------------------------------- 
+    // Function:    readAll($fromRecordNum, $recordsPerPage)                        
+    //                                                                              
+    // Params:      $fromRecordNum -                                                
+    //              $recordsPerPage -                                               
+    // Desc:        SELECT all fields from the Books table, order by Title ASC      
+    // Invocations: index.php                                                       
+    //              --$stmt = $book->readAll($fromRecordNum, $recordsPerPage);      
+    //-----------------------------------------------------------------------------*/
     function readAll($fromRecordNum, $recordsPerPage){
         /*
         //ORIGINAL WORKING QUERY --WITHOUT-- GROUP_CONCAT or COUNTING
@@ -335,7 +358,54 @@ class Book{
     
         return $final;
     }
+
     
+    /*-----------------------------------------------------------------------------
+    // Function:    getBooksOnList($fromRecordNum, $recordsPerPage)
+    //
+    // Params:      $recordsPerPage
+    //              $fromRecordNum
+    // Desc:        SELECT all rows where 'reading' is true
+    // Invocations: readingList.php
+    //              --$book->getBooksOnList();
+    //---------------------------------------------------------------------------*/
+    function getBooksOnList($fromRecordNum, $recordsPerPage){
+        
+        $query = "SELECT b.ID, b.Title, GROUP_CONCAT(s.SubjectName SEPARATOR ';') as SubjectName, Count(bs.BookID) SubjectCount, b.ISBN, b.PageCount, b.Comments, b.ListPrice, b.Progress, b.Rating, b.DateAcquired, b.DateStarted, b.DateFinished, b.Reading FROM 
+                " . $this->tableName . " AS b 
+                LEFT OUTER JOIN BookSubjects AS bs ON b.ID = bs.BookID 
+                LEFT OUTER JOIN Subjects AS s ON s.SubjectID = bs.SubjectID 
+            WHERE b.Reading = 1 
+            GROUP BY b.ID, bs.BookID, b.Title, b.ISBN, b.PageCount, b.Comments, b.ListPrice, b.Progress, b.Rating, b.DateAcquired, b.DateStarted, b.DateFinished, b.Reading 
+            ORDER BY b.Title ASC 
+            LIMIT 
+                {$fromRecordNum}, {$recordsPerPage}";
+
+        $final = $this->dbConn->prepare($query);
+        $final->execute();
+
+        return $final;
+    }
+
+    /*-----------------------------------------------------------------------------
+    // Function:    getBooksNotOnList()
+    //
+    // Desc:        SELECT all rows where 'reading' is false
+    // Invocations: readingList.php
+    //              --$booksNotOnList = $book->getBooksNotOnList();
+    //---------------------------------------------------------------------------*/
+    function getBooksNotOnList(){
+        //ORIGINAL WORKING QUERY --WITHOUT-- GROUP_CONCAT or COUNTING
+        $query = "SELECT b.ID, b.Title FROM 
+                " . $this->tableName . " AS b 
+            WHERE b.Reading = 0";
+        
+        $final = $this->dbConn->prepare($query);
+        $final->execute();
+    
+        return $final;
+    }
+
     /*-----------------------------------------------------------------------------
     // Function:    readOne() - UPDATED - Reads from Books and Subjects
     //
@@ -439,6 +509,26 @@ class Book{
     } // END countAll()
     
     /*-----------------------------------------------------------------------------
+    // Function:    countReadingList()        
+    //
+    // Desc:        SELECT and count all rows in Books table that are on reading 
+    //              list.  Return count.
+    // Invocations: index.php 
+    //              --$totalRows = $book->countAll();
+    //---------------------------------------------------------------------------*/ 
+    function countReadingList(){
+        //Does this need an empty string appended at the end?
+        $query = "SELECT ID FROM " . "$this->tableName" . " WHERE Reading = 1";
+        
+        $stmt = $this->dbConn->prepare( $query );
+        $stmt->execute();
+        
+        $count = $stmt->rowCount();
+        debug_to_console('count: ' . $count);
+        return $count;
+    } // END countAll()
+
+    /*-----------------------------------------------------------------------------
     // Function:    update()        
     //
     // Desc:        send updates to the DB based on user changes in the client side
@@ -485,6 +575,206 @@ class Book{
             return true;
         }
         $final->debugDumpParams();
+        return false;
+    }
+
+    /*-----------------------------------------------------------------------------
+    // Function:    setReadingTrue($id)      
+    //
+    // Desc:        special UPDATE function that sets only the Reading value to 
+    //              true (1), for a specified Book's ID
+    // Invocations: readingList.php 
+    //              --if($book->setReadingTrue($book->ID)){...}
+    //---------------------------------------------------------------------------*/ 
+    function setReadingTrue($id){
+        if($id){
+            //construct our query (NOTE - these are NOT yet bound to their final value.  This is a template)
+            $query = "UPDATE " . $this->tableName . " 
+            SET 
+                Reading=:Reading
+            WHERE 
+                ID=:ID";
+            
+            $final = $this->dbConn->prepare($query);
+            
+            // NOTE - we're not altering a Book ID and there's no need to assign the ID to $book->ID.
+            // Utilizing the parameter passed through the browser ($id) is sufficient.
+            $this->ID=htmlspecialchars(strip_tags($id));  
+            $this->Reading = 1;
+            
+            // Again, its not necessary to use $this->ID.  The browser parameter is fine
+            $final->bindParam(':ID', $id);
+            $final->bindParam(':Reading', $this->Reading);
+            
+            if($final->execute()){
+            //if($final->execute($parameters)){
+                return true;
+            }
+            $final->debugDumpParams();
+            
+        }
+        return false;
+    }
+
+    /*-----------------------------------------------------------------------------
+    // Function:    updateReading($id, $value)      
+    //
+    // Params:      $id - ID of the book
+    //              $value - 1 or 0
+    // Desc:        special UPDATE function that sets only the Reading value to 
+    //              true (1), for a specified Book's ID
+    // Invocations: readingList.php 
+    //              --if($book->updateReading($book->ID)){...}
+    //---------------------------------------------------------------------------*/ 
+    function updateReading($id, $value){
+        debug_to_console('books->updateReading ID: ' . $id . '; VALUE: ' . $value);
+        if($id){
+            //construct our query (NOTE - these are NOT yet bound to their final value.  This is a template)
+            $query = "UPDATE " . $this->tableName . " 
+            SET 
+                Reading=:Reading
+            WHERE 
+                ID=:ID";
+            
+            $final = $this->dbConn->prepare($query);
+            
+            // NOTE - we're not altering a Book ID and there's no need to assign the ID to $book->ID.
+            // Utilizing the parameter passed through the browser ($id) is sufficient.
+            $this->ID = $id;  
+            $this->Reading = $value;
+            
+            // Again, its not necessary to use $this->ID.  The browser parameter is fine
+            $final->bindParam(':ID', $id);
+            $final->bindParam(':Reading', $this->Reading);
+            
+            if($final->execute()){
+            //if($final->execute($parameters)){
+                return true;
+            }
+            $final->debugDumpParams();
+            
+        }
+        return false;
+    }
+
+    /*-----------------------------------------------------------------------------
+    // Function:    updateReadingMultiple($id, $titles, $value)      
+    //
+    // Params:      $id - ID of the book
+    //              $titles - Titles needed because of the structure of the 
+    //                        multiple update nature of the query.
+    //              $value - 1 or 0
+    // Desc:        special UPDATE function that sets only the Reading value to 
+    //              true (0) for N books
+    // Invocations: readingList.php 
+    //              --if($book->updateReading($book->ID)){...}
+    //---------------------------------------------------------------------------*/ 
+    function updateReadingMultiple($bookIds, $titles, $value){
+        if($bookIds){
+            $bookArray = explode(',', $bookIds);
+            $titleArray = explode(',', $titles);
+            
+            /*
+            INSERT INTO Books (ID,Title, Reading) VALUES (135,'KOL and YOU', 0), (158, 'History of Soviet Union', 0)
+            ON DUPLICATE KEY UPDATE ID=VALUES(ID),Title= VALUES(Title),Reading=VALUES(Reading);
+            */
+            $query = "INSERT INTO Books (ID, Title, Reading) VALUES (";
+            $size = sizeof($bookArray);
+            for ($i=0; $i < $size; $i++) { 
+                $query .= $bookArray[$i] . ", \"" . $titleArray[$i] . "\", " . 0 ;
+                if($size-$i > 1){
+                    $query .= "), (";
+                }else{
+                    $query .= ")";
+                }
+            }
+            $query .= " ON DUPLICATE KEY UPDATE ID=VALUES(ID), Title=VALUES(Title), Reading=VALUES(Reading);";
+                                
+            $final = $this->dbConn->prepare($query);
+            
+            if($final->execute()){
+                return true;
+            }
+            
+        } // END if bookIds
+        return false;
+    }
+
+    /*-----------------------------------------------------------------------------
+    // Function:    updateProgress($id, $value)      
+    //
+    // Params:      $id - ID of the book
+    //              $value - progress value to update
+    // Desc:        special UPDATE function that sets only the Progress value to 
+    //              $value for a specified Book's ID
+    // Invocations: readingList.php 
+    //              --if($book->updateProgress($bookIdToUpdateProgress, $progressValue)){...}
+    //---------------------------------------------------------------------------*/ 
+    function updateProgress($id, $value){
+        debug_to_console('books->updateReading ID: ' . $id . '; VALUE: ' . $value);
+        if($id){
+            //construct our query (NOTE - these are NOT yet bound to their final value.  This is a template)
+            $query = "UPDATE " . $this->tableName . " 
+            SET 
+                Progress=:Progress
+            WHERE 
+                ID=:ID";
+            
+            $final = $this->dbConn->prepare($query);
+            
+            // NOTE - we're not altering a Book ID and there's no need to assign the ID to $book->ID.
+            // Utilizing the parameter passed through the browser ($id) is sufficient.
+            $this->ID = $id;  
+            $this->Progress = $value;
+            
+            // Again, its not necessary to use $this->ID.  The browser parameter is fine
+            $final->bindParam(':ID', $id);
+            $final->bindParam(':Progress', $this->Progress);
+            
+            if($final->execute()){
+            //if($final->execute($parameters)){
+                return true;
+            }
+            $final->debugDumpParams();
+            
+        }
+        return false;
+    }
+
+    /*-----------------------------------------------------------------------------
+    // Function:    updateRating($bookId, $rating)        
+    //
+    // Params:      $bookId - ID of book to update
+    //              $rating - rating value to assign
+    // Desc:        Update a given book's rating value.  
+    // Invocations: readingList.php
+    //                  --if($book->updateRating($bookId, $rating)){...}
+    //---------------------------------------------------------------------------*/
+    function updateRating($id, $rating){
+        if($id){
+            //construct our query (NOTE - these are NOT yet bound to their final value.  This is a template)
+            $query = "UPDATE " . $this->tableName . " 
+            SET 
+                Rating=:Rating
+            WHERE 
+                ID=:ID";
+            
+            $final = $this->dbConn->prepare($query);
+            
+            // NOTE - we're not altering a Book ID and there's no need to assign the ID to $book->ID.
+            // Utilizing the parameter passed through the browser ($id) is sufficient.
+            $this->ID = $id;  
+            $this->Rating = $rating;
+            
+            // Again, its not necessary to use $this->ID.  The browser parameter is fine
+            $final->bindParam(':ID', $id);
+            $final->bindParam(':Rating', $this->Rating);
+            
+            if($final->execute()){
+                return true;
+            }
+            $final->debugDumpParams();
+        }
         return false;
     }
 

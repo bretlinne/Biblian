@@ -34,13 +34,13 @@ ini_set('display_errors', 1);
 $database = new Database();
 $db = $database->getConn();
 
-//TODO - create book.php object file for this to call
-//  -needs public props, constructor, a method for creating (INSERTING), new book into the DB
+// instantiate the book & subject objects
 $book = new Book($db);
 $subject = new Subject($db);
 
 //Set page headers
-$pageTitle = 'Create New Book';
+$pageTitle = 'Create New Book'; 
+$view = 'create';   //$view values: 'create', 'read', 'readingList', 'update'
 
 // set stylesheet
 $stylesheet = '../client/createBook.css';
@@ -68,14 +68,18 @@ if($_POST){
     $book->Reading      = $_POST['Reading'];
     $subject->Name      = $_POST['subject_name'];       //only used for INSERT of custom subject
     
-    // DUMMY DATA
-    //$foo = 7;
-    //$subject->createBookSubject(131, $foo);
-    
     // ------------------------------------------
     // CREATE BOOK
     // ------------------------------------------
-    
+    // IF THERE IS A PAGECOUNT AND NO PROGRESS, MAKE PROGRESS 0
+    if(! $book->PageCount){
+        $book->Progress = null;
+    }else{
+        if(! $book->Progress){
+            $book->Progress = 0;
+        }
+    }
+
     if ($book->create()){
         
         $lastBookID = $book->getLastInsertID();
@@ -252,7 +256,7 @@ To use the JS,
                 <!------------------->
                 <tr>
                     <td>Page Count</td>
-                    <td><input type='number' name='PageCount' value='' /></td>
+                    <td><input type='number' id='PageCount' min=1 name='PageCount' value='' /></td>
                 </tr>
                 <!-- DATE ACQUIRED -->
                 <!------------------->
@@ -286,7 +290,10 @@ To use the JS,
                 <!------------------->
                 <tr style='display:none'>
                     <td class='reading-content'>Progress (in pages)</td>
-                    <td class='reading-content'><input type='number' name='Progress' value='' /></td>
+                    <td class='reading-content'>
+                        <input type='number' id='progress' min=0 name='Progress' value='' />
+                        <div type='number' id='progress-placeholder' name='Progress-placeholder'><i>Input PageCount first...</i></div>
+                    </td>
                 </tr>
                 <!-- LIST PRICE    -->
                 <!------------------->

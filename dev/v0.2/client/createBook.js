@@ -22,10 +22,36 @@ $("#reading-box").change(function() {
 });
 
 /*-----------------------------------------------------------------------------
+// Function:    (auto-executing function)()        
+//
+// Desc:        listener for the Progress input.  It should only be displayed 
+//              if there's a non-0 value in the PageCount box
+// Invocations: createBook.php
+//---------------------------------------------------------------------------*/
+(function (){
+    var pageCount = document.getElementById('PageCount');
+    pageCount.addEventListener('keyup', displayProgressField);
+    //console.log(progressField.nodeValue);
+})();
+
+function displayProgressField(){
+    var progress = document.getElementById('progress');
+    var progressPlaceholder = document.getElementById('progress-placeholder');
+    if(this.value > 0){
+        progress.style.display = 'block';    
+        progressPlaceholder.style.display = 'none';
+    }else{
+        progress.style.display = 'none';    
+        progressPlaceholder.style.display = 'block';
+    }
+
+}
+
+/*-----------------------------------------------------------------------------
 // Function:    attachReadingToPost()        
 //
 // Desc:        Javascript. Get the IDs of selected Books & pass them to $_POST  
-// Invocations: updateBook.php
+// Invocations: createBook.php
 //---------------------------------------------------------------------------*/
 function attachReadingToPost(){
     var readingValue = document.querySelector('#reading-box').checked;

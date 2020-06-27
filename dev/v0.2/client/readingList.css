@@ -1,0 +1,1090 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@font-face { font-family: russo; src: url('./res/inc/Russo_One.ttf');}
+/*===========================================================================*/
+/*                                                                           */
+/* readingList.css                                                           */
+/* adapted from read.css                                                     */
+/*===========================================================================*/
+/* BOOTSTRAP classes used:
+  .right-button-margin
+  .btn 
+  .btn-primary
+  .pull-right
+  .glyphicon
+  .glyphicon-plus
+  .glyphicon-trash
+  .glyphicon-chevron-down
+  .glyphicon-book
+  .alert
+  .alert-info
+*/
+
+.slidecontainer {
+  width: 50%; /* Width of the outside container */
+}
+
+input[type=range] {
+    display: block;
+    width: 50%; /* Full-width */
+}
+    
+/* The slider itself */
+.starSlider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.starSlider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.starSlider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.starSlider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+/*-----------------------------------*/
+/* Book Container                    */
+/*-----------------------------------*/
+.bookContainer{
+    background-color: #fff;
+}
+
+.bookContainer:nth-of-type(even){
+    background-color: #eee;
+}
+
+.selectBoxAndAllOthers{
+    display: flex;
+    flex-direction: row;
+}
+
+.selectBox{
+    border-right: 1px solid #ccc;
+    width: 4%;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+input[type=checkbox]{
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+    margin: 4px 6px 0;
+}
+
+.titleAndStatusContainer{
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.titleStarsAuthSubs{
+    width: 74%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 4px;
+}
+
+.titleContainer{
+    width: 100%;
+    height: auto;
+    flex: none;
+    margin-top: 4px;
+    /*
+    display: flex:
+    flex-direction: column;
+    width:  68%;
+    */
+}
+
+.titleContainer h2{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.starsAuthorsSubs{
+    width: 100%;
+    /* height: 90px; */
+    display: flex;
+    /* flex: auto; */
+    flex-direction: row;
+}
+
+.starsAuthors{
+    width: 42%;
+    height: auto;
+}
+
+.stars{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.starsModalLink{
+    width: 42%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.starsModalLinkStandin{
+    width: 80%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    font-style: italic;
+    font-weight: bold;
+    justify-content: center;
+    background-color: #ffeecc;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding-top: 3px;
+    border: 2px solid #ffbb33;
+    border-radius: 4px;
+    color: #99701f;
+}
+
+.starsModalLinkStandin:hover{
+    background-color: #ccaa66;
+    border: 2px solid #febc39;
+    color: #ffffff;
+}
+
+[class*='starImg']{
+    width: 2em;
+    height: 2em;
+    background-size: 2em 2em;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin: 0;
+    text-decoration: none;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+}
+
+.starImg{
+    background-image: url('./res/images/star.svg');
+}
+.starImgHalf{
+    background-image: url('./res/images/star_half.svg');
+}
+.starImgEmpty{
+    background-image: url('./res/images/star_empty.svg');
+}
+
+.starImgHover{
+    background-image: url('./res/images/star_hover.svg');
+}
+.starImgHalfHover{
+    background-image: url('./res/images/star_half_hover.svg');
+}
+.starImgEmptyHover{
+    background-image: url('./res/images/star_empty_hover.svg');
+}
+
+
+#modalStarContainer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+[class*='modalStar']{
+    width: 5em;
+    height: 5em;
+    background-size: 5em 5em;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin: 0;
+    text-decoration: none;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+}
+
+.modalStarEmpty{
+    background-image: url('./res/images/star_empty.svg');
+    margin-left: 10px;
+}
+.modalStarHalf{
+    background-image: url('./res/images/star_half.svg');
+    margin-left: 10px;
+}
+.modalStar{
+    background-image: url('./res/images/star.svg');
+    margin-left: 10px;
+}
+
+.stars h4{
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.authors{
+    width: 100%;
+    height: auto;
+}
+
+.subjects{
+    width: 58%;
+    height: auto;
+    margin-top: 10px
+}
+
+/* ----------------------------------------------------------*/
+/* Progress Update                                           */
+/* ----------------------------------------------------------*/
+.progress-container{
+    width: 56%;
+    padding-top: 2.5%;
+    height: auto;
+    display: block;
+}
+
+.progress-standin{
+    /*
+    display: block;
+    width: 56%;
+    height: 26px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 4px;
+    margin-top: 4%;*/
+
+    display: block;
+    width: 34%;
+    height: 48px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    padding: 4px;
+    margin-top: 4%;
+}
+
+.progress-standin-btn{
+    width: auto;
+    height: 48px;
+    background-color: #abcdea;
+    border: 2px solid #538ec1;
+    color: #326a99;
+    margin-right: 10px;
+    border-radius: 4px;
+    margin-top: 4%;
+    margin-left: 10px;
+    display: block;
+}
+
+.progress-standin-btn span{
+    width: auto;
+}
+.progress-label{
+    font-family: russo;
+}
+
+.progress-pageCount-container{
+
+}
+
+.pageCount-zero-label{
+    display: inline-block;
+}
+
+.pageCount-label{
+    float: right;
+}
+
+progress[value] {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+     appearance: none;
+  
+    width: 100%;
+    height: 25px;
+  }
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+    background-image:
+         -webkit-linear-gradient(-45deg, 
+                                 transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                                 rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(top, 
+                                 rgba(255, 255, 255, .25), 
+                                 rgba(0, 0, 0, .25)),
+         -webkit-linear-gradient(left, #09c, #f44);
+  
+      border-radius: 2px; 
+      background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+.progress-bar-label[data-value]{
+    position: relative;
+}
+
+.progress-bar-label[data-value]:after {
+    content: attr(data-value) '%';
+    position: absolute;
+    margin-top: 4px;
+    right: 10%;
+    /* margin-left: 0px; */
+    color: black;
+}
+/*
+progress::after {
+	margin:-26px 0 0 -7px;
+	padding:0;
+	display:inline-block;
+	float:left;
+	content: attr(value) '%';
+}
+*/
+/* START COMMENT OUT OF PROGRESS SLIDER - USE LATER ON STARS */
+.progress-input[type=range]{
+    -webkit-appearance: none;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 6px;
+}
+
+.progress-input[type=range]:hover{
+    opacity: 1;
+}
+
+.progress-input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #337ab7;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  
+.progress-input[type=range]::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #337ab7;
+    cursor: pointer;
+    border-radius: 6px;
+}
+/* END  COMMENT OUT OF PROGRESS SLIDER - USE LATER ON STARS */
+.progress-outputContainer{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    height: auto;
+    display: inline-flex;
+    margin-bottom: 10px;
+}
+.progress-output{
+    margin-right: 10px;
+    width: 58px;
+    padding-top: 8px;
+    border-radius: 4px;
+}
+
+.btn-chevron{
+    width: 5em;
+    height: 5em;
+    background-size: 5em 5em;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin: 0;
+    text-decoration: none;
+    background-image: url('./res/images/btn_chevron.svg');
+}
+.chevron {
+    height: 60px;
+    width: 32px;
+    transform: rotate(-90deg);
+}
+
+.chevron:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 50%;
+    background: #abcdef;
+    transform: skew(0deg, -20deg);
+    border-bottom-right-radius: 4px;
+    border-bottom: 2px solid #5992c3;
+    border-top: 2px solid #5992c3;
+    border-right: 2px solid #5992c3;
+}
+.chevron:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 51%;
+    background: #abcdef;
+    transform: skew(0deg, 20deg);
+    border-bottom-left-radius: 4px;
+    border-bottom: 2px solid #5992c3;
+    border-top: 2px solid #5992C2;
+    border-left: 2px solid #5992c3;
+}
+
+[class*='progress-plus']{
+    height: 32px;
+    background-color: #abcdea;
+    border: 2px solid #538ec1;
+    color: #528ab9;
+    margin-left: auto;
+    margin-right: 10px;
+}
+.progress-plus1{
+    background-color: #abcdef;
+}
+.progress-plus5{
+    background-color: #abcdef;
+}
+.progress-plus10{
+    background-color: #abcdef;
+}
+
+
+/* ----------------------------------------------------------*/
+/* Status Container                                          */
+/* ----------------------------------------------------------*/
+.statAndUpdateContainer{
+    width: 26%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.statContainer{
+    height: auto;
+    margin-bottom: 24px;
+    justify-content: flex-end;
+    /*
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: stretch;
+    */   
+}
+
+.advContainer{
+    width: 100%;
+    height: auto;
+    border-top: 1px solid #ccc;
+    padding: 3px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.advContainer:hover{
+    background-color: #ddd;
+}
+
+.advanced{
+    text-align: left;
+}
+
+.endOfBookSpan{
+    height: 20px;
+/*    background: linear-gradient(0deg, rgba(221,221,221,1) 0%, rgba(255,255,255,0) 100%);*/
+}
+
+#details-icon{
+    margin-top: 2px;
+}
+
+#deleteSelectedBtn{
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    display: inline-block;
+    width: 64px;
+    height: 34px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.navToUpdatePageContainer{
+    width: 92px;
+    height: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navToUpdatePage{
+    background-color: #337ab7;
+    color: #fff;
+    width: 72px;
+    height: 124px;
+    border-radius: 10px;
+}
+
+/*----------------------------------------------------------------------------*/
+/* SVG Images CSS                                                             */
+/*----------------------------------------------------------------------------*/
+[class*='status']{
+    width: 10em;
+    height: 10em;
+    background-size: 10em 10em;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin: 0;
+    text-decoration: none;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-apperance: none;
+}
+.statusFin{
+    background-image: url('./res/images/status_finished.svg');
+}
+.statusFin:hover{
+    background-image: url('./res/images/status_finished_hover.svg');
+}
+.statusFin:active{
+    background-image: url('./res/images/status_finished_press.svg');
+    transform: scale(0.99);
+}
+.statusReading{
+    background-image: url('./res/images/status_reading.svg');
+}
+.statusReading:hover{
+    background-image: url('./res/images/status_reading_hover.svg');
+}
+.statusReading:active{
+    background-image: url('./res/images/status_reading_press.svg');
+    transform: scale(0.99);
+}
+.statusUnread{
+    background-image: url('./res/images/status_unread.svg');
+}
+.statusUnread:hover{
+    background-image: url('./res/images/status_unread_hover.svg');
+}
+.statusUnread:active{
+    background-image: url('./res/images/status_unread_press.svg');
+    transform: scale(0.99);
+}
+.statusStarted{
+    background-image: url('./res/images/status_started.svg');
+}
+.statusStarted:hover{
+    background-image: url('./res/images/status_started_hover.svg');
+}
+.statusStarted:active{
+    background-image: url('./res/images/status_started_press.svg');
+}
+
+.dateFinishedLabel{
+    color: #337ab7;
+    text-align: center;
+    font-weight: bold;
+    margin-left: -4px;
+    font-style: italic;
+    display: block;
+}
+.dateStartedLabel{
+    color: #337ab7;
+    width: 185px;
+    font-weight: bold;
+    text-align: end;
+    margin-top: 8px;
+    font-style: italic;
+    display: block;
+}
+
+.nav{
+    margin-right: 0%;
+}
+
+#btnOpenAddToListModal{
+    margin-right: 16px;
+    float: right;
+}
+/*----------------------------------------------------------------------------*/
+/* Modal CSS                                                             */
+/*----------------------------------------------------------------------------*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+/* Modal Content/Box */
+.modalContent {
+    background-color: #fefefe;
+    margin: 8% auto;
+    padding: 0px;
+    border: 0px;
+    width: 50%;
+    border-radius: 6px;
+}
+
+.modalHeader {
+    background-color: #eee;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    padding-left: 6%;       /* adjusts the centering of the modal title */
+    border-radius: 6px 6px 0px 0px;
+}
+
+.modalBody{
+    width: 100%;
+    height: 140px;
+    padding-bottom: 18px;
+}
+
+#modalForm{
+    width: 80%;
+    display: block;
+    margin-top: 16px;
+    margin-block-end: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#modalStarForm{
+    width: 80%;
+    display: block;
+    margin-top: 16px;
+    margin-block-end: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modalBtnContainer{
+    margin-top: 5%;
+    float: right;
+}
+
+.modalAccept{
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    display: inline-block;
+    height: 34px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.modalCancel{
+    color: #fff;
+    background-color: #ccc;
+    border-color: #ccc;
+    display: inline-block;
+    height: 34px;
+    margin-bottom: 0;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin-right: 16px;
+}
+
+#btnRemoveFromList{
+    background-color: crimson;
+    border-color: crimson;
+}
+
+#btnNavToReadingList{
+    margin-right: 16px;
+}
+
+#subject-input{
+    width: 50%;
+}
+
+/* The Close Button */
+.close {
+    color: #999;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    opacity: .8;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 1;
+    transform: scale(1.01);
+}
+
+#subject-input {
+    width: 80%;
+    height: 34px;
+    display: block;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*-----------------------------------*/
+/* Star Slider for rating change     */
+/* CURRENTLY COMMENTED OUT in        */
+/* readTemplate.php                  */
+/*-----------------------------------*/
+/*
+#starSlider{
+    float: left;
+    clear: left;
+    width: 300px;
+    margin: 15px;
+}
+
+#starSlider .ui-range-slider{
+    background: #fff;
+}
+#starSlider .ui-state-default, .ui-widget-content .ui-state-default {
+	background: none;
+	background-color: #FFF;
+}
+*/
+
+/*-----------------------------------*/
+/* Slider for ReadingList Add/Remove */
+/* CURRENTLY COMMENTED OUT in        */
+/* readTemplate.php                  */
+/*-----------------------------------*/
+
+.finishedSwitch {
+  position: relative;
+  display: inline-block;
+  width: 126px;
+  height: 34px;
+  max-width: 100%;
+  margin-bottom: 0px;
+  font-weight: 0;
+  cursor: pointer;
+}
+
+.finishedSwitch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* finished slider: background & outline when its in 'reading' [LEFT] state */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    height: 42px !important;
+    top: 6px;
+    left: 0;
+    right: 0;
+    bottom: 8px;
+    background-color: #fec;
+    border: 4px solid #fb3;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+/* slider switch */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  margin-top: 4px;
+  margin-left: 6px; 
+  background-color: #99701f;    /* brown [LEFT] */
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/* finished slider: background & outline when its in 'finished' [RIGHT] state */
+input:checked + .slider {
+    background-color: #3be6bd;
+    border: 4px solid #21b56d;
+  
+}
+input:checked + .slider:before{
+    background-color: #31825b;    /* green [RIGHT] */
+}
+
+/* finished slider: outline when its in 'reading' [LEFT] state */
+input:focus + .slider {
+  border: 4px solid #fb3;
+}
+
+/* finished slider: outline when its in 'finished' [RIGHT] state */
+input:checked:focus + .slider {
+    border: 4px solid #21b56d;
+  }
+
+input:checked + .slider:before {
+  -webkit-trans: translateX(80px);
+  -ms-transform: translateX(80px);
+  transform: translateX(80px);
+}
+
+
+/*-----------------------------------*/
+/* Rounded sliders                   */
+/*-----------------------------------*/
+.slider.round {
+  border-radius: 9px;
+}
+
+.slider.round:before {
+  border-radius: 25%;
+}
+
+.toggleContainer{
+    height: auto;
+    margin-top: -5px;
+    margin-left: 7px;
+}
+.toggleStateImage{
+    width: 6em;
+    height: 6em;
+    background-size: 6.0em 6.0em;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin-top: 0px;
+    margin-left: -7px;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-apperance: none;
+    background-image: url(images/status_OnList_faded.svg);    
+    opacity: 1;
+}
+
+
+/*---------------------------------------------------------------------------*/
+/* Additions for bootstrap                                                   */
+/*---------------------------------------------------------------------------*/
+/* some changes in bootstrap modal */
+.modal-body {
+    padding: 20px 20px 0px 20px !important;
+    text-align: center !important;
+}                                                                                                                                                           .modal-footer{
+    text-align: center !important;
+}
+
+.active, .collapsible:hover {
+  background-color: #cbb;
+}
+
+.advanced-content {
+    background-color: #edd;
+    padding: 0 5px 5px;
+    width: 100%;
+    display: none;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0px 0px 10px 10px;
+}
+
+
+.button-div{
+    padding: 10px;
+    border-style: hidden solid solid;
+    border-radius: 0px 0px 10px 10px;
+    border-color: #fff;
+}
+#shown-content {
+    padding: 10px;
+    border-style: hidden solid solid;
+    border-radius: 0px 0px 10px 10px;
+    border-color: #fff;
+}
+
+
+.left-margin{       
+    margin:0 .5em 0 0;
+}
+.right-button-margin{
+    margin: 0 0 1em 0;
+    overflow: hidden;
+}
+
+/* all */
+::-webkit-input-placeholder { color:#aaa; font-style: italic; }
+::-moz-placeholder { color:#aaa; font-style: italic; } /* firefox 19+ */
+:-ms-input-placeholder { color:#aaa; font-style: italic; } /* ie */
+input:-moz-placeholder { color:#aaa; font-style: italic; }
+
+
+
+
+/*---------------------------------------------------------------------------*/
+/* For non-selectable areas, give it a class of 'noselect'                   */
+/*---------------------------------------------------------------------------*/
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+/* COMMENTED OUT AS IT INTERFERES WITH THE BOOTSTRAP STYLES ABOVE
+button{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background: black;
+    margin: 20px;
+    cursor: pointer;
+}
+*/
+    
+    /* This may need to be removed if it screws up layout */
+* {
+  box-sizing: border-box;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+#sidebar, #content{
+    height: 100%;
+    overflow: auto;
+}
+
+#content{
+    background: rgba(245,245,245,1);
+    width: 80%;
+    float: right;
+}
+
+#contentMargin{
+    position: relative;
+    left:2%;
+}
+
+#sidebar{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    /*background: rgba(255,184,125,1);*/
+    background: #E3965B; /*rgba(28,195,188,1);*/
+    width: 20%;
+    box-shadow: 2px, 0, 4px, rgba(0,0,0,0.5);
+    transition: width .35s;
+}
+#sidebarMargin{
+    position: absolute;
+    left: 5%;
+}
+
+#closer{
+    float:right;
+}   
+
+#appTitle{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 26px;
+    text-align: left;
+    color: #383313;
+}
+h3{
+    text-align: center;
+    color:#383313;
+    font-family: sans-serif;
+}

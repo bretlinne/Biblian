@@ -11,10 +11,10 @@
   .btn-primary
   .pull-right
 */
-#deleteBtn {
+#btnDelete {
     color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
+    background-color: crimson;
+    border-color: crimson;
     display: inline-block;
     width: 64px;
     height: 34px;
@@ -79,3 +79,6 @@ input[type=checkbox]{
     margin: 4px 6px 0;
 }
 
+#btnNavToReadingList{
+    margin-right: 16px;
+}

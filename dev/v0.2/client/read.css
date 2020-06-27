@@ -14,6 +14,30 @@
   .form-control
 */
 
+/* DEALS WITH LINK TO GOOGLE SHEET AND CLEANING UP THE NAV AREA */
+.gantt{
+    width: 196px;
+    padding: 8px 12px;
+    height: 34px;
+    margin-left: 10px;
+    margin-top: 20px;
+    align-content: center;
+    background-color: #337ab7;
+    border-radius: 4px;
+}
+.gantt a{
+    color: white;
+}
+.nav{
+    /* display: flex; */
+    /* flex-direction: row-reverse; */
+    margin-right: 0%;
+}
+
+.pages-gantt{
+    display: flex;
+}
+/* ------------------------------------------------------------- */
 .collapsible {
     background-color: #dcc;
     color: darkslategray;
@@ -274,10 +298,32 @@ input[type=checkbox]{
 .stars{
     width: 100%;
     height: auto;
-
+    display: flex;
+    flex-direction: row;
+}
+[class*='starImg']{
+    width: 2em;
+    height: 2em;
+    background-size: 2em 2em;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin: 0;
+    text-decoration: none;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
 }
 
-/* READ PAGE */
+.starImg{
+    background-image: url('./res/images/star.svg');
+}
+.starImgHalf{
+    background-image: url('./res/images/star_half.svg');
+}
+.starImgEmpty{
+    background-image: url('./res/images/star_empty.svg');
+}
+
 .stars h4{
     margin-top: 4px;
     margin-bottom: 4px;
@@ -337,36 +383,40 @@ input[type=checkbox]{
 /*    background: linear-gradient(0deg, rgba(221,221,221,1) 0%, rgba(255,255,255,0) 100%);*/
 }
 
-/* READ PAGE */
 #details-icon{
     margin-top: 2px;
 }
 
-/* READ PAGE */
-#deleteSelectedBtn{
+#btnDeleteSelected{
     color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
-    display: inline-block;
+    background-color: crimson;
+    border-color: crimson;
+    /* display: inline-block; */
     width: 64px;
     height: 34px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
+    /* margin-bottom: 0; */
+    /* font-size: 14px; */
+    /* font-weight: 400; */
+    /* line-height: 1.42857143; */
+    /* text-align: center; */
     white-space: nowrap;
     vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
+    /* -ms-touch-action: manipulation; */
+    /* touch-action: manipulation; */
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
+    /* -webkit-user-select: none; */
+    /* -moz-user-select: none; */
+    /* -ms-user-select: none; */
+    /* user-select: none; */
+    /* background-image: none; */
     border: 1px solid transparent;
     border-radius: 4px;
+    margin-right: 10px;
+}
+
+
+#btnNavToReadingList{
+    margin-right: 16px;
 }
 
 /* READ PAGE */
@@ -433,6 +483,20 @@ input[type=checkbox]{
     background-image: url('./res/images/status_unread_press.svg');
     transform: scale(0.99);
 }
+.statusStarted{
+    background-image: url('./res/images/status_started.svg');
+}
+.statusStarted:hover{
+    background-image: url('./res/images/status_started_hover.svg');
+}
+.statusStarted:active{
+    background-image: url('./res/images/status_started_press.svg');
+}
+
+/*-----------------------------------*/
+/* STAR SVG Classes                  */
+/*-----------------------------------*/
+
 
 /*-----------------------------------*/
 /* Star Slider for rating change     */
@@ -461,7 +525,7 @@ input[type=checkbox]{
 /* CURRENTLY COMMENTED OUT in        */
 /* readTemplate.php                  */
 /*-----------------------------------*/
-/*
+
 .readingListSwitch {
   position: relative;
   display: inline-block;
@@ -520,7 +584,7 @@ input:checked + .slider:before {
   -ms-transform: translateX(38px);
   transform: translateX(38px);
 }
-*/
+
 
 /*-----------------------------------*/
 /* Rounded sliders                   */

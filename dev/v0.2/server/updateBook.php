@@ -30,6 +30,7 @@ $subject = new Subject($db);
 
 // set page header
 $pageTitle = 'Update Book';
+$view = 'update';       //$view values: 'create', 'read', 'readingList', 'update'
 
 // set stylesheet
 $stylesheet = '../client/updateBook.css';
@@ -38,12 +39,24 @@ include_once 'layoutHeader.php';
 
 $lastSubjectID = null;
 
-// NAV BUTTON BACK TO INDEX.PHP
-echo "<div class='right-button-margin'>";
-    echo "<a href='index.php' class='btn btn-primary pull-right'>";
-    echo "<span class='glyphicon glyphicon-book'></span> Biblian Home";
-    echo "</a>";
-echo "</div>";
+// ------------------------------------------------------------
+// CREATE NAV BUTTONS
+// ------------------------------------------------------------
+
+// NAV TO HOME
+//-----------------------------
+//echo "<div class='nav'>";
+    // NAV BUTTON BACK TO INDEX.PHP
+    echo "<div class='right-button-margin'>";
+        echo "<a href='index.php' class='btn btn-primary pull-right'>";
+            echo "<span class='glyphicon glyphicon-book'></span> Biblian Home";
+        echo "</a>";
+
+        echo "<a href='readingList.php' id='btnNavToReadingList' class='btn btn-primary pull-right'>";
+            echo "<span class='glyphicon glyphicon-th-list'></span> My Reading List";
+        echo "</a>";
+    echo "</div>";
+//echo "</div>"; // END NAV
 
 //Set id of book to be retrieved
 $book->ID = $ID;
@@ -143,7 +156,7 @@ if($_POST['bookId']){
 <!-- DELETE BUTTON                                                          -->
 <!---------------------------------------------------------------------------->
 <form method='POST' id='deleteForm' name='deleteForm' action=''>
-    <button id='deleteBtn' book-id='<?php echo $ID ?>' onclick='JavaScript:return deleteThisBook();'>
+    <button id='btnDelete' book-id='<?php echo $ID ?>' onclick='JavaScript:return deleteThisBook();'>
         <span class='glyphicon glyphicon-trash'></span>
     </button>
 </form>
