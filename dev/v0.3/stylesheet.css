@@ -1,0 +1,720 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/*---------------------------------------------------------------------------*/
+/* Additions for bootstrap                                                   */
+/*---------------------------------------------------------------------------*/
+/* some changes in bootstrap modal */
+.modal-body {
+    padding: 20px 20px 0px 20px !important;
+    text-align: center !important;
+}                                                                                                                                                           .modal-footer{
+    text-align: center !important;
+}
+.collapsible {
+    background-color: #dcc;
+    color: darkslategray;
+    cursor: pointer;
+    padding: 16px;
+    width: 100%;
+    display: block;
+    border: none;
+    text-align: right;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #cbb;
+}
+
+.advanced-content {
+    background-color: #edd;
+    padding: 0 5px 5px;
+    width: 100%;
+    display: none;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.reading-content{
+    background-color: #fee;
+    padding: inherit;
+    width: inherit;
+    text-indent: 20px;
+}
+
+.button-div{
+    padding: 10px;
+    border-style: hidden solid solid;
+    border-radius: 0px 0px 10px 10px;
+    border-color: #fff;
+}
+#shown-content {
+    padding: 10px;
+    border-style: hidden solid solid;
+    border-radius: 0px 0px 10px 10px;
+    border-color: #fff;
+}
+
+#button-row{
+    height: 72px;
+    border-style: solid hidden;
+}
+#button-cell{
+    border-style: inherit;
+    position: relative;
+    padding-top: 8px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.left-margin{       
+    margin:0 .5em 0 0;
+}
+.right-button-margin{
+    margin: 0 0 1em 0;
+    overflow: hidden;
+}
+/* OVERRIDE OF BOOTSTRAP STYLE DEFINITIONS */
+.linne-btn {
+ display: block;
+    padding: 16px;
+    width: 100%;
+    margin-bottom: 0;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: hidden;
+    text-align: right;
+}
+.linne-btn-submit {
+    color: #fff;
+    background-color: #337ab7;
+}
+
+.active, .linne-btn-submit:hover {
+  background-color: #115595;
+}
+
+#search-btn {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    padding: 9px 12px;
+}
+
+#tBook{
+    background-color: #ffaaaa;
+    /* width: 100%;
+    height: 154px;
+    display: flex; */
+}
+#tTitleStat{
+    background-color: #000;
+    width: 100%;
+    height: 130px;
+    display: flex;
+    /* padding: 10px;
+    margin: 5px 5px 5px 5px; */
+}
+#tTitleStarsAuthorsSubjects{
+    background-color: #cc7788;
+    width: 65%;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#tTitle{
+    background-color: #ffffaa;
+    width: 100%;
+    height: 40px;
+    flex: none;
+}
+#tEtAl{
+    background-color: #ccccff;
+    width: 100%;
+    height: 90px;
+    display: flex;
+    /* flex: auto; */
+    flex-direction: row;
+}
+
+#tStarsAndAuthors{
+    background-color: #ccc;
+    width: 42%;
+    height: 90px;
+}
+
+#tStars{
+    background-color: #fff;
+    width: 100%;
+    height: 50px;
+}
+
+#tAuthors{
+    background-color: #aaa;
+    width: 100%;
+    height: 40px;
+}
+
+#tSubjects{
+    background-color: #77eeee;
+    width: 58%;
+    height: 90px;
+}
+#tStatContainer{
+    background-color: #aaa;
+    width: 35%;
+    height: 130px;
+    display: flex;
+}
+#tAdvanced{
+    background-color: #888;
+    width: 100%;
+    height: 20px;
+}
+
+/* all */
+::-webkit-input-placeholder { color:#aaa; font-style: italic; }
+::-moz-placeholder { color:#aaa; font-style: italic; } /* firefox 19+ */
+:-ms-input-placeholder { color:#aaa; font-style: italic; } /* ie */
+input:-moz-placeholder { color:#aaa; font-style: italic; }
+
+/* tag container */
+.linne-container{
+    width: 100%;
+    margin: 0px;
+}
+
+.linne-tag-container{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+}
+
+.linne-tag-container .tag{
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background: #ddf;
+    cursor: default;
+}
+.tag i{
+    font-size: 16px;
+    margin-left: 5px;
+}
+.linne-tag-container input{
+    flex: 1;
+    font-size: 16px;
+    padding: 5px;
+    outline: none;
+    border: 0;
+}
+
+#starSlider{
+    float: left;
+    clear: left;
+    width: 300px;
+    margin: 15px;
+}
+
+#starSlider .ui-range-slider{
+    background: #fff;
+}
+#starSlider .ui-state-default, .ui-widget-content .ui-state-default {
+	background: none;
+	background-color: #FFF;
+}
+
+/*----------------------------------------------------------------------------*/
+/* Book Container                                                             */
+/* READ PAGE */
+/*----------------------------------------------------------------------------*/
+/* READ PAGE */
+.bookContainer{
+    background-color: #fff;
+}
+
+/* READ PAGE */
+.bookContainer:nth-of-type(even){
+    background-color: #eee;
+}
+
+/* READ PAGE */
+.selectBoxAndAllOthers{
+    display: flex;
+    flex-direction: row;
+}
+
+/* READ PAGE */
+.selectBox{
+    border-right: 1px solid #ccc;
+    width: 40px;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+}
+
+/* READ PAGE */
+input[type=checkbox]{
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+}
+
+/* READ PAGE */
+.titleAndStatusContainer{
+    width: 100%;
+    height: 140px;
+    display: flex;
+}
+
+.titleStarsAuthSubs{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 4px;
+}
+
+/* READ PAGE */
+.titleContainer{
+    width: 100%;
+    height: auto;
+    flex: none;
+    margin-top: 4px;
+    /*
+    display: flex:
+    flex-direction: column;
+    width:  68%;
+    */
+}
+
+/* READ PAGE */
+.titleContainer h2{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* READ PAGE */
+.starsAuthorsSubs{
+    width: 100%;
+    height: 90px;
+    display: flex;
+    /* flex: auto; */
+    flex-direction: row;
+}
+
+/* READ PAGE */
+.starsAuthors{
+    width: 42%;
+    height: 90px;
+}
+
+/* READ PAGE */
+.stars{
+    width: 100%;
+    height: auto;
+
+}
+
+/* READ PAGE */
+.stars h4{
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* READ PAGE */
+.authors{
+    width: 100%;
+    height: 40px;
+}
+
+/* READ PAGE */
+.subjects{
+    width: 58%;
+    height: auto;
+    margin-top: 10px
+}
+
+/* READ PAGE */
+.statContainer{
+    width: 35%;
+    height: 140px;
+    display: flex;
+    justify-content: flex-end;
+    /*
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: stretch;
+    */
+}
+
+/* READ PAGE */
+.advContainer{
+    width: 100%;
+    height: auto;
+    border-top: 1px solid #ccc;
+    padding: 3px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* READ PAGE */
+.advContainer:hover{
+    background-color: #ddd;
+}
+
+/* READ PAGE */
+.advanced{
+    text-align: left;
+}
+
+/* READ PAGE */
+.endOfBookSpan{
+    height: 20px;
+/*    background: linear-gradient(0deg, rgba(221,221,221,1) 0%, rgba(255,255,255,0) 100%);*/
+}
+
+/* READ PAGE */
+#details-icon{
+    margin-top: 2px;
+}
+
+/* READ PAGE */
+#deleteSelectedBtn{
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    display: inline-block;
+    width: 64px;
+    height: 34px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+/* READ PAGE */
+.navToUpdatePageContainer{
+    width: 92px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* READ PAGE */
+.navToUpdatePage{
+    background-color: #337ab7;
+    color: #fff;
+    width: 72px;
+    height: 124px;
+    border-radius: 10px;
+}
+/*----------------------------------------------------------------------------*/
+/* SVG CSS                                                                    */
+/*----------------------------------------------------------------------------*/
+[class*='status']{
+    width: 10em;
+    height: 10em;
+    background-size: 10em 10em;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin: 0;
+    text-decoration: none;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-apperance: none;
+}
+.statusFin{
+    background-image: url('images/status_finished.svg');
+}
+.statusFin:hover{
+    background-image: url('images/status_finished_hover.svg');
+}
+.statusFin:active{
+    background-image: url('images/status_finished_press.svg');
+    transform: scale(0.99);
+}
+.statusReading{
+    background-image: url('images/status_reading.svg');
+}
+.statusReading:hover{
+    background-image: url('images/status_reading_hover.svg');
+}
+.statusReading:active{
+    background-image: url('images/status_reading_press.svg');
+    transform: scale(0.99);
+}
+.statusUnread{
+    background-image: url('images/status_unread.svg');
+}
+.statusUnread:hover{
+    background-image: url('images/status_unread_hover.svg');
+}
+.statusUnread:active{
+    background-image: url('images/status_unread_press.svg');
+    transform: scale(0.99);
+}
+
+/*---------------------------------------------------------------------------*/
+/* Slider for Reading List Add/Remove                                        */
+/*---------------------------------------------------------------------------*/
+.readingListSwitch {
+  position: relative;
+  display: inline-block;
+  width: 72px;
+  height: 34px;
+  max-width: 100%;
+  margin-bottom: 0px;
+  font-weight: 0;
+  cursor: pointer;
+}
+
+#readingListSwitchSpacer{
+    width: 10px;
+}
+.readingListSwitch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    height: 34px !important;
+    top: 6px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(38px);
+  -ms-transform: translateX(38px);
+  transform: translateX(38px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 9px;
+}
+
+.slider.round:before {
+  border-radius: 25%;
+}
+
+.toggleContainer{
+    height: 100%;
+    margin-top: 16px;
+    margin-left: 0px;
+}
+.toggleStateImage{
+    width: 6em;
+    height: 6em;
+    background-size: 6.0em 6.0em;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin-top: 0px;
+    margin-left: -7px;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-apperance: none;
+    background-image: url(images/status_OnList_faded.svg);    
+    opacity: 1;
+}
+
+/*---------------------------------------------------------------------------*/
+/* For non-selectable areas, give it a class of 'noselect'                   */
+/*---------------------------------------------------------------------------*/
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+/* COMMENTED OUT AS IT INTERFERES WITH THE BOOTSTRAP STYLES ABOVE
+button{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background: black;
+    margin: 20px;
+    cursor: pointer;
+}
+*/
+    
+    /* This may need to be removed if it screws up layout */
+* {
+  box-sizing: border-box;
+}
+/*Date:
+                            <input type="date" name="date" value="<?= date('Y-m-d', time()); ?>" /><br> -->*/
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  /*height: 200px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+table.greyGridTable {
+  border: 2px solid gray;
+  width: 80%;
+}
+table.greyGridTable td, table.greyGridTable th {
+  border: 1px solid gray;
+  padding: 3px 4px;
+}
+table.greyGridTable tbody td {
+}
+table.greyGridTable td:nth-child(even) {
+  background: #EBEBEB;
+}
+table.greyGridTable thead {
+  background: #FFFFFF;
+  border-bottom: 4px solid #333333;
+}
+table.greyGridTable thead th {
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  border-left: 2px solid #333333;
+}
+table.greyGridTable thead th:first-child {
+}
+
+table.greyGridTable tfoot {
+  font-weight: bold;
+  color: #333333;
+  border-top: 4px solid #333333;
+}
+table.greyGridTable tfoot td {
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+#sidebar, #content{
+    height: 100%;
+    overflow: auto;
+}
+
+#content{
+    background: rgba(245,245,245,1);
+    width: 80%;
+    float: right;
+}
+
+#contentMargin{
+    position: relative;
+    left:2%;
+}
+
+#sidebar{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    /*background: rgba(255,184,125,1);*/
+    background: #E3965B; /*rgba(28,195,188,1);*/
+    width: 20%;
+    box-shadow: 2px, 0, 4px, rgba(0,0,0,0.5);
+    transition: width .35s;
+}
+#sidebarMargin{
+    position: absolute;
+    left: 5%;
+}
+
+#closer{
+    float:right;
+}   
+
+#appTitle{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 26px;
+    text-align: left;
+    color: #383313;
+}
+h3{
+    text-align: center;
+    color:#383313;
+    font-family: sans-serif;
+}
