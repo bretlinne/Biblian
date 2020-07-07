@@ -18,7 +18,7 @@
 /* DIV REBUILD                                                               */
 /*                                                                           */
 /*===========================================================================*/
-[id*='headContainerAuthor']{
+[id*='headContainer']{
     width: 100%;
     border-top: 1px #ccc;
     border-bottom: 0px;
@@ -86,18 +86,223 @@
     border-radius: 4px;
 }
 
-#headContainerAuthor{
-    background-color: #f6f6f6;
+/* ------------------------------------------------------------------------- */
+/* author containers                                                         */
+/* ------------------------------------------------------------------------- */
+/* [class*='headContainer']{
+    width: 100%;
+    border-top: 1px #ccc;
+    border-bottom: 0px;
+    border-left: 1px #ccc;
+    border-right: 1px #ccc;
+    border-style: solid;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
 }
 
-#containerAuthor{
-    flex-direction: column;
+[class*='container']{
+    width: 100%;
+    border-top: 1px #ccc;
+    border-left: 1px #ccc;
+    border-bottom: 0px;
+    border-right: 1px #ccc;
+    border-style: solid;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+[class*='subcontainer']{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
     border: none;
 }
 
-#subcontainerAuthor{
-    padding: 0px;
+[class*='subSubcontainer']{
+    width: 100%;
+    height: auto;
+    display: block;
 }
+
+
+[class*='headLabel']{
+    width: 100%;
+    height: auto;
+    flex: none;
+}
+*/
+[class*='label']{
+    width: 35%;
+}
+
+
+[class*='input']{
+    width: 65%;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+} 
+
+/* ------------------------------------------------------------------------- */
+/* class version of author elements                                          */
+/* ------------------------------------------------------------------------- */
+.headContainerAuthor{
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #ccc;
+    margin-top: 16px;
+    padding: 8px 10px 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.headLabelAuthor{
+    width: 100%;
+    height: auto;
+    flex: none;
+}
+
+.containerAuthor{
+    flex-direction: column;
+    border: none;
+    width: 100%;
+    border-radius: 4px;
+    display: flex;
+    padding: 8px 10px 8px 10px;
+}
+
+.subcontainerAuthor{
+    padding: 0px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    border: none;
+    border-radius: 4px;
+}
+
+.subcontainerAuthorExtra{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px 10px 8px 10px;
+}
+
+.subSubcontainerAuthorLast{
+    margin-right: 10px;
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid #ccc;
+    flex-direction: row;
+    padding: 8px 10px 8px 10px;
+    border-radius: 4px;
+}
+
+.subSubcontainerAuthorFirst{
+    margin-right: 10px;
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid #ccc;
+    flex-direction: row;
+    padding: 8px 10px 8px 10px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+
+
+.subSubcontainerMiddle01{
+    width: 33%;
+    border: none;
+    height: auto;
+    display: block;
+    flex-direction: row;
+    padding: 8px 10px 8px 10px;
+    border-radius: 4px;
+}
+.subSubcontainerMiddle02{
+    width: 33%;
+    border: none;
+    height: auto;
+    display: block;
+    flex-direction: row;
+    padding: 8px 10px 8px 10px;
+    border-radius: 4px;
+}
+.subSubcontainerSuffix{
+    width: 34%;
+    border: none;
+    height: auto;
+    display: block;
+    flex-direction: row;
+    padding: 8px 10px 8px 10px;
+    border-radius: 4px;
+}
+
+#subcontainerAddAnotherAuthor{
+    width: 100%;
+    display: block;
+    padding: 0px;
+    margin-top: 12px;
+}
+
+#subcontainerRemoveAddedAuthor{
+    width: 100%;
+    display: block;
+    padding: 0px;
+    margin-top: 12px;
+}
+
+#btnAddAnotherAuthor{
+    width: 48px;
+    background-color: transparent;
+    height: 48px;
+    border: 2px solid transparent;
+    color: darkgray;
+    border-radius: 24px;
+    float: right!important;
+    margin-bottom: 24px;
+    border-color: #ccc;
+    
+}
+#btnAddAnotherAuthor:hover{
+    color: white;
+    background-color: #888;
+    border-color: #000;
+}
+
+#btnRemoveAddedAuthor{
+    width: 48px;
+    background-color: lightcoral;
+    height: 48px;
+    border: 2px solid transparent;
+    color: white;
+    border-radius: 24px;
+    float: right!important;
+    margin-bottom: 24px;
+    border-color: #ccc;
+    margin-right: 10px;
+    
+}
+#btnRemoveAddedAuthor:hover{
+    color: white;
+    background-color: crimson;
+    border-color: #000;
+}
+
 
 #containerSubject{
     flex-direction: column;
@@ -111,33 +316,6 @@
 
 #subject-input{
     width: 100%;
-}
-
-#subcontainerAuthorExtra{
-    border: 1px solid #ccc;
-}
-
-#subSubcontainerAuthorLast{
-    border-bottom: 1px solid #ccc;
-    margin-right: 10px;
-}
-
-#subSubcontainerAuthorFirst{
-    border-bottom: 1px solid #ccc;
-    margin-left: 10px;
-}
-
-#subSubcontainerMiddle01{
-    width: 33%;
-    border: none;
-}
-#subSubcontainerMiddle02{
-    width: 33%;
-    border: none;
-}
-#subSubcontainerSuffix{
-    width: 34%;
-    border: none;
 }
 
 #reading-box{
@@ -334,6 +512,7 @@ progress[value]::-webkit-progress-value {
     height: auto;
     display: none;
 }
+
 
 /*===========================================================================*/
 /*                                                                           */

@@ -444,6 +444,10 @@ input[type=checkbox]{
     margin-right: 16px;
 }
 
+#btnNavToSubjectView{
+    margin-right: 16px;
+}
+
 /* READ PAGE */
 .navToUpdatePageContainer{
     width: 92px;

@@ -69,6 +69,11 @@ if($_POST){
         echo "<a href='readingList.php' id='btnNavToReadingList' class='btn btn-primary pull-right'>";
             echo "<span class='glyphicon glyphicon-th-list'></span> My Reading List";
         echo "</a>";
+
+        echo "<a href='./subjectsView.php' id='btnNavToSubjectView' class='btn btn-primary pull-right'> Edit Subjects";
+            // echo "<span class='glyphicon glyphicon-plus'></span> ";
+        echo "</a>";
+    
     
 
         // --------------------------------
@@ -91,7 +96,6 @@ echo "<div id='notification' class='alert'></div>";
 
 //Display Library Contents if they exist
 if($totalRows > 0){
-    //swapStatusState($statAssigned, $statFinColorsHover);
 
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);

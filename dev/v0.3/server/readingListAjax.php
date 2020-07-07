@@ -120,9 +120,24 @@ class Book{
         }
     }
     
+    /*-------------------------------------------------------------------------
+    // Function:    getUpdatedProgress($id, $getDatStartedAlso)      
+    //
+    // Params:      $id - ID of the book
+    //              $getDatStartedAlso - comes in either 1/0 (True/False).  If 
+    //                1, a date is needed & so SELECT it also from the DB.
+    //              
+    // Desc:        get function to retrieve the updated progress and the date
+    //              started.
+    //
+    // Return:      Returns comma-separated complex value ONLY IF the 2nd 
+    //                param is TRUE.  Otherwise returns progress value.
+    //
+    // Invocations: readingListAjax.php 
+    //              --if(! empty($dateStarted)){
+    //                  $resp = $book->getUpdatedProgress($id, 1); }
+    //-----------------------------------------------------------------------*/
     function getUpdatedProgress($id, $getDateStartedAlso){
-
-        
         //construct our query (NOTE - these are NOT yet bound to their final value.  This is a template)
         $query = "SELECT Progress";
         if($getDateStartedAlso === 1){

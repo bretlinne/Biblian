@@ -19,7 +19,7 @@
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
  
 // set number of records per page
-$recordsPerPage = 5;
+$recordsPerPage = 10;
  
 // calculate for the query LIMIT clause
 $fromRecordNum = ($recordsPerPage * $page) - $recordsPerPage;
@@ -36,7 +36,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // set page header
-$pageTitle = "Biblian - Your Digital Library Catalogue (v0.2)";
+$pageTitle = "Biblian - Your Digital Library Catalogue (v0.3)";
 $view = 'read';         //$view values: 'create', 'read', 'readingList', 'update'
 
 // set page stylesheet

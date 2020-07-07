@@ -221,6 +221,28 @@ class Subject{
         return $idsToAttach;
     }
     
+    /*-----------------------------------------------------------------------------
+    // Function:    countAll()        
+    //
+    // Desc:        SELECT all ID entries (all rows) in Subject table and then count
+    //              them.  Returned count.
+    // Invocations: subjectsView.php 
+    //              --$totalRows = $subject->countAll();
+    //---------------------------------------------------------------------------*/ 
+    function countAll(){
+        //Does this need an empty string appended at the end?
+        
+        $query = "SELECT SubjectID FROM " . "$this->table_name" . "";
+        // debug_to_console('query: '. $query);
+        $stmt = $this->dbConn->prepare( $query );
+        $stmt->execute();
+        
+        $count = $stmt->rowCount();
+        
+        return $count;
+    } // END countAll()
+
+    
     /*=============================================================================
     
     CRUD FUNCTIONS
@@ -375,6 +397,29 @@ class Subject{
         return $stmt;
     }
     
+    /*-----------------------------------------------------------------------------
+    // Function:    readAllPaging()        
+    //
+    // Params:      $fromRecordNum -                                                
+    //              $recordsPerPage - 
+    // Desc:        Reads all SubjectIDs and SubjectNames with paging limits
+    // Invocations: subjectsView.php
+    //              --$stmt = $subject->readAllPaging();
+    //---------------------------------------------------------------------------*/
+    //used by the drop-down menu for adding books
+    function readAllPaging($fromRecordNum, $recordsPerPage){
+        $query = "SELECT SubjectID, SubjectName
+                  FROM " . $this->table_name . 
+                 " ORDER BY SubjectName 
+                 LIMIT 
+                     {$fromRecordNum}, {$recordsPerPage}";
+        
+        $stmt = $this->dbConn->prepare( $query );
+        $stmt->execute();
+        
+        return $stmt;
+    }
+
     /*-----------------------------------------------------------------------------
     // Function:    readID($name)        
     // 

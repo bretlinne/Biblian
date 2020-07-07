@@ -120,7 +120,6 @@ if($_POST){
             // an array of IDs for all new subjects and old subjects
             $subjectsToAttach = $subject->sortUserInput();
             
-            
         }
         if($subjectsToAttach !== null){
             if( $subject->createBookSubject($lastBookID, $subjectsToAttach)){
@@ -148,8 +147,12 @@ if($_POST){
     // --------------------------------------------------------
     if($resp){
         $params = "msg=". urlencode($resp)."&type=". urlencode($respType);
-        header("Location:./res/inc/clearReload.php?$params");
+        // header("Location:./res/inc/clearReload.php?$params");
     }
+} // END if $_POST check
+if($_POST['Title']){
+    debug_to_console($_POST);
+    
 }
 
 /*    
@@ -206,49 +209,61 @@ echo "<form id='mainForm' action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "
         echo "<input id='inputTitle' type='text' class='form-control' name='Title' maxlength='512' autofocus required/>";
     echo "</div>";
 
-    // --------------------------------------------------------
+    // ------------------------------------------------------------------------
     // AUTHOR
-    // CHANGE - I don't like this layout for the author input.  Adjust in later version
-    // --------------------------------------------------------------------------------
-    echo "<div id='headContainerAuthor' style='display: none'>";
-        echo "<div id='headLabelAuthor'>Author</div>";
-        echo "<div id='containerAuthor'>";
-            echo "<div id='subcontainerAuthor'>";
-                echo "<div id='subSubcontainerAuthorLast'>";
-                    echo "<div id='labelAuthorLast'>Last Name</div>";
-                    echo "<input id='inputAuthorFirst' type='text' class='form-control' name='LastName' value='' />";
+    // ------------------------------------------------------------------------
+    echo "<div class='headContainerAuthor' id='authorElementId0' style='display: block'>";
+        echo "<div class='headLabelAuthor'>Author</div>";
+        echo "<div class='containerAuthor'>";
+            echo "<div class='subcontainerAuthor'>";
+                echo "<div class='subSubcontainerAuthorLast'>";
+                    echo "<div class='labelAuthorLast'>Last Name</div>";
+                    echo "<input class='inputAuthorLast' type='text' class='form-control' name='LastName0' value='Howard' />";
                 echo "</div>";
 
-                echo "<div id='subSubcontainerAuthorFirst'>";
-                    echo "<div id='labelAuthorFirst'>First Name</div>";
-                    echo "<input id='inputAuthorFirst' type='text' class='form-control' name='FirstName' value='' />";
+                echo "<div class='subSubcontainerAuthorFirst'>";
+                    echo "<div class='labelAuthorFirst'>First Name</div>";
+                    echo "<input class='inputAuthorFirst' type='text' class='form-control' name='FirstName0' value='Moe' />";
                 echo "</div>";
             echo "</div>"; // END AUTHOR SUBCONTAINER 
 
             echo "<p>*** INSERT TOGGLE FOR AUTHOR EXTRA HERE ***</p>";
-            echo "<div id='subcontainerAuthorExtra'>";
+            echo "<div class='subcontainerAuthorExtra'>";
                 // AUTHOR MIDDLE 01
                 // --------------------
-                echo "<div id='subSubcontainerMiddle01'>";
-                    echo "<div id='labelAuthorMiddle01'>Author Middle 01</div>";
-                    echo "<input id='inputAuthorMiddle01' type='text' class='form-control' name='MiddleName01' />";
+                echo "<div class='subSubcontainerMiddle01'>";
+                    echo "<div class='labelAuthorMiddle01'>Author Middle 01</div>";
+                    echo "<input class='inputAuthorMiddle01' type='text' class='form-control' name='MiddleName01_0' />";
                 echo "</div>";
                 // AUTHOR MIDDLE 02
                 // --------------------
-                echo "<div id='subSubcontainerMiddle02'>";
-                    echo "<div id='labelAuthorMiddle02'>Author Middle 02</div>";
-                    echo "<input id='inputAuthorMiddle02' type='text' class='form-control' name='MiddleName02' />";
+                echo "<div class='subSubcontainerMiddle02'>";
+                    echo "<div class='labelAuthorMiddle02'>Author Middle 02</div>";
+                    echo "<input class='inputAuthorMiddle02' type='text' class='form-control' name='MiddleName02_0' />";
                 echo "</div>";
                 // AUTHOR SUFFIX 
                 // --------------------
-                echo "<div id='subSubcontainerSuffix'>";
-                    echo "<div id='labelAuthorSuffix'>Author Suffix</div>";
-                    echo "<input id='inputAuthorSuffix' type='text' class='form-control' name='Suffix' placeholder='Jr., Sr., III., Esq., Ph.D, etc' value='' />";
+                echo "<div class='subSubcontainerSuffix'>";
+                    echo "<div class='labelAuthorSuffix'>Author Suffix</div>";
+                    echo "<input class='inputAuthorSuffix' type='text' class='form-control' name='Suffix0' placeholder='Jr., Sr., III., Esq., Ph.D, etc' value='' />";
                 echo "</div>";
             echo "</div>";  // END AUTHOR EXTRA SUBCONTAINER
-        echo "</div>"; // END AUTHOR CONTAINER
+        echo "</div>"; // END AUTHOR CONTAINER    
     echo "</div>";  // END AUTHOR HEAD CONTAINER 
 
+    // ADD AUTHOR ELEMENT
+    echo "<div id='subcontainerAddAnotherAuthor'>";
+        echo "<button id='btnAddAnotherAuthor' onclick='return false'><span class='glyphicon glyphicon-plus'></span>";
+        echo "</button>";
+    echo "</div>";
+
+    // REMOVE AUTHOR ELEMENT
+    echo "<div id='subcontainerRemoveAddedAuthor' style='display: none'>";
+        echo "<button id='btnRemoveAddedAuthor' onclick='return false'><span class='glyphicon glyphicon-minus'></span>";
+        echo "</button>";
+    echo "</div>";
+
+    
     // --------------------------------------------------------
     // RATING AND SUBJECT
     // --------------------------------------------------------

@@ -347,7 +347,12 @@ if($totalRows > 0){
                     //-----------------------------
                     // PROGRESS CONTAINER
                     // ----------------------------
-                    echo "<div class='progress-container'>";
+                    if(! $DateFinished){
+                    echo "<div class='progress-container' style='display:block'>";
+                    }
+                    else{
+                    echo "<div class='progress-container' style='display:none'>";
+                    }
                         echo "<div class='progress-label'>Reading Progress";
                         echo "</div>";
                         
@@ -400,7 +405,11 @@ if($totalRows > 0){
                     // -----------------------------------------------------
                     // ALTERNATIVE PROGRESS-CONTAINER FOR WHEN FINISHED
                     // -----------------------------------------------------
-                    echo "<div class='progress-container-finished'>";
+                    if($DateFinished){
+                    echo "<div class='progress-container-finished' style='display:block'>";
+                    }else{
+                    echo "<div class='progress-container-finished' style='display:none'>";
+                    }
                         echo "<div class='progress-label'>Reading Progress</div>";
 
                         echo "<progress class='progressBar' max={$PageCount} value={$PageCount}></progress>";
@@ -452,7 +461,6 @@ if($totalRows > 0){
                     echo "</button>";
                 echo "</div>"; // END navToUpdatePageContainer
 
-
                 // ---------------------------
                 // FINISHED BUTTON
                 // ---------------------------
@@ -496,28 +504,6 @@ if($totalRows > 0){
         
         echo "</div>";  // END bookContainer div
         
-
-        //echo "<div class='starSlider'></div";
-        //echo "<div class='slidecontainer'>";
-        //    echo "<input type='range' min='0' max='5' value='0' class='starSlider' id='myRange'>";
-        //    echo "<p>Value: <span id='demo'></span></p>";
-        //echo "</div>";    
-        
-            
-        //echo "<div class='ratingSlider'>";
-        //    echo "<input type='range min=0 max=5 value=0 class='starSlider' step='0.5'/>";
-        //echo "</div>";
-  
-  
-        // REMOVE BUTTON
-        //-----------------------------
-       /*
-        echo "<form method='POST' id='deleteForm' name='deleteForm' action=''>";
-            echo "<button id='deleteSelectedBtn' onclick='JavaScript:return deleteSelected();'>";
-                echo "<span class='glyphicon glyphicon-minus'></span>";
-            echo "</button>";
-        echo "</form>";
-        */
     } // ORIG END WHILE
 } 
 

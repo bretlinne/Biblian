@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+/*===========================================================================*/
+/*                                                                           */
+/* subjectsView.css                                                            */
+/*                                                                           */
+/*===========================================================================*/
+body{
+    margin-bottom: 50px;
+}
+/* ----------------------------------------- */
+/* PRIMARY ORGANIZATION */
+/* ----------------------------------------- */
+#containerSearchAndCreate{
+    width: 100%;
+    display: flex;
+}
+
+#inputSearch{
+    width: 100%;
+    height: auto;
+    padding: 6px 0px 4px 8px;
+    border-radius: 6px 0px 0px 6px;
+    border: 1px solid #ccc;
+}
+
+#formSearch{
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+#searchContainer{
+    width: 40%;
+    height: 15%;
+    display: flex;
+    margin-left: 10.8%;
+}
+
+#search-btn{
+    border-radius: 0px 6px 6px 0px;
+    width: 112px;
+    height: 34px;
+    border-radius: 0px 6px 6px 0px;
+    background-color: #337ab7;
+    padding: 6px 12px;
+    border: none;
+}
+
+#headReadContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+#readContainerLeft{
+    width: 50%;
+    height: auto;
+    margin-right: 10px;
+}
+
+#readContainerRight{
+    width: 50%;
+    height: auto;
+    margin-left: 10px;
+}
+
+.headContainerSubject{
+    background-color: #fff;
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    /* deals with fade out upon delete */
+    opacity: 1;
+    -webkit-transition: opacity 750ms linear;
+    transition: opacity 750ms linear;
+}
+
+.headContainerSubject:nth-of-type(odd){
+    background-color: #eee;
+}
+
+.containerSubject{
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 6px 0px 0px 6px;
+    padding: 8px 0px 6px 8px;
+}
+
+
+
+#containerCreate{
+    width: 49.2%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+#labelSubject{
+    width: 25%;
+    padding: 8px 0px 0px 8px;
+}
+
+#inputSubject{
+    width: 55%;
+    border-radius: 6px 0px 0px 6px;
+}
+
+#buttonSubjectCreate{
+    width: 112px;
+    height: 34px;
+    border-radius: 0px 6px 6px 0px;
+    background-color: #337ab7;
+    padding: 6px 12px;
+    border: none;
+}
+
+.buttonDelete{
+    width: 20%;
+    height: 36px;
+    border-radius: 0px 6px 6px 0px;
+    border: none;
+    background-color: lightcoral/*#f77777;*/ /*crimson;*/
+}
+
+.buttonDelete:hover{
+    background-color: indianred;     /* #c00020; */
+    /* border-color: #c00020; */
+}
+
+.buttonDelete:focus{
+    background-color: crimson;
+}
+
+.buttonDelete:focus:active{
+    background-color: crimson;
+}
+
+#editPrompt{
+    font-style: italic;
+    color: #08A;
+    margin-top: 20px;
+}
+/* ----------------------------------------------------------*/
+/* Notification                                              */
+/* ----------------------------------------------------------*/
+#notification{
+    width: 100%;
+    height: auto;
+    display: none;
+    /* display: block; */
+}

@@ -112,7 +112,8 @@ function navToUpdate(btnEvent){
 // Params:      -
 // Desc:        Get the IDs of selected Books & pass them to $_POST  
 // Invocations: readtemplate.php:
-//                echo "<a id='btnDeleteSelected' onclick='deleteSelected()'>";
+//              --echo "<button class='btn btn-primary' id='btnDeleteSelected' 
+//                  onclick='JavaScript:return deleteSelected();'>";
 //---------------------------------------------------------------------------*/
 function deleteSelected(){
     // GET THE ID OF THE BOOK(s) SELECTED BY CHECKBOXEN - bookCheckBox.book-id

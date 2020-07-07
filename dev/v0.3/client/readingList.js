@@ -362,7 +362,6 @@ spanRatingClose.onclick = function() {
 
 // ------------------------------------------------------------
 // Remove Button Logic
-// CHANGE - doesn't work for multiple removes
 // ------------------------------------------------------------
 btnRemoveFromList.onclick = function(){
   // GET ID OF SELECTED BOOK(s) FROM CHECKBOXEN
@@ -468,35 +467,6 @@ function statusContainerAction(obj){
 
   processFinishedToggle(bookId, finished);
 }
-
-/* ----------------------------------------------------------------------------
-// Function:    finishedSwitchAction(obj)   
-// FINISHED SWITCH FUNCTIONALITY
-// --Toggles whether a book is FINISHED or not
-// --handles UI changes 
-// --at least starts the process of an async DB operation to update the DB
-// immmediately with the change.
-// --perhaps have the status image only change when a successful read of the 
-// DB confirms that the 'reading' value is changed.
-// COMMENTED OUT - DECIDED THAT I DIDN"T NEED THE TOGGLE SWITCH
-// --------------------------------------------------------------------------*/
-// function finishedSwitchAction(obj){
-//   //deal with toggling the Currently Reading section
-  
-//   //---------------------------------------
-//   // deal with stateImage later
-//   //const toggleStateImage = obj.parentNode.parentNode.childNodes[0];
-//   //let state = toggleStateImage.getAttribute('state');
-//   //console.log(state);
-//   //---------------------------------------
-//   if (obj.checked === true){
-//       //toggleStateImage.setAttribute('state', 'on');
-//       console.log('checked');
-//   }
-//   else{
-//       console.log('off');
-//   }
-// }
 
 // ============================================================================
 //
@@ -833,7 +803,24 @@ function processProgressUpdate(started){
   }
 }
 
-// Set the DateFinished label below the Finished status button
+/*-----------------------------------------------------------------------------
+// Function:    handleServerResponseFinishedToggle()      
+//
+// Params:      uses global variables: _currentBtnEvent
+//              XHR response: (2 possible incoming values):
+//               1 - DateFinished
+//               2 - null
+//              
+// Desc:        AJAX functions. Handles response from server for AJAX.
+//              Set the DateFinished label below the Finished status button
+//              Also sets the value of the DateFinished in advanced dropdown    
+//
+// Invocations: readingList.php 
+//              --function processFinishedToggle(id, finished){
+//                ...
+//                xhr.onreadystatechange = handleServerResponseFinishedToggle;
+//                ... }
+//---------------------------------------------------------------------------*/
 function handleServerResponseFinishedToggle(){
   if(this.readyState == 4){
     if(xhr.status == 200){
@@ -867,7 +854,22 @@ function handleServerResponseFinishedToggle(){
   }
 }
 
-
+/*-----------------------------------------------------------------------------
+// Function:    handleServerResponseProgress()      
+//
+// Params:      uses global variables: _currentBtnEvent
+//              XHR response: (2 possible incoming values):
+//               1 - comma-separated msg from server that contains 
+//                   "progressValue, 'DateStarted"
+//               2 - single "progressValue" return
+//              
+// Desc:        AJAX functions. Handles response from server for AJAX.
+//              Sets progressOutput and progressBar
+//
+// Invocations: readingList.php 
+//              --if(! empty($dateStarted)){
+//                  $resp = $book->getUpdatedProgress($id, 1); }
+//---------------------------------------------------------------------------*/
 function handleServerResponseProgress(){
   if(this.readyState == 4){
       if(xhr.status == 200){
@@ -912,6 +914,23 @@ function handleServerResponseProgress(){
   }
 }
 
+/*-----------------------------------------------------------------------------
+// Function:    handleServerResponsePageCount()      
+//
+// Params:      uses global variables: _currentBtnEvent
+//              XHR response: pageCount
+//              
+// Desc:        AJAX functions. Handles response from server for AJAX.
+//              Used for when a pageCount needs to be set before the progress
+//              bar is displayed.  Sets pageCount entered by user in UI, and 
+//              displays the progress bar UI and removes the pageCount input UI
+//
+// Invocations: readingList.php 
+//              --function processPageCountUpdate(pageCount, id){
+//                ...
+//                xhr.onreadystatechange = handleServerResponsePageCount;
+//                ... }
+//---------------------------------------------------------------------------*/
 function handleServerResponsePageCount(){
   if(this.readyState == 4){
       if(xhr.status == 200){

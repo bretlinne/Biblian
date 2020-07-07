@@ -120,7 +120,7 @@ class Book{
     // Desc:        Gets the ID of the last INSERT Operation from DB and returns it
     // Invocations: createBook.php 
     //              --if ($book->create()){
-    //                  $lastID = $subject->getLastInsertID();
+    //                  $lastBookID = $book->getLastInsertID();
     //                  ...
     //---------------------------------------------------------------------------*/
     function getLastInsertID(){
